@@ -1,0 +1,10 @@
+SECRET_KEY="qz#7v(_8ems7)3rp)u0pxi_43x2v6t!)8w6rc9yv*=sfq_558k"
+DB_NAME="beheerconsole"
+DB_USER="beheerconsole"
+#
+# For peer authentication via unix domain socket
+# these should be kept empty.
+#
+DB_PASSWORD=""
+DB_HOST=""
+DB_PORT=""

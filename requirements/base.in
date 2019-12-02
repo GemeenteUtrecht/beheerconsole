@@ -1,0 +1,13 @@
+# Core python libraries
+psycopg2
+pytz
+raven
+python-dotenv
+python-decouple  # processing of envvar configs
+uwsgi
+
+# Framework libraries
+Django
+django-axes
+django-redis
+

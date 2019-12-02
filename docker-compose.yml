@@ -1,0 +1,22 @@
+# Inspired by https://docs.docker.com/compose/django/
+version: '3'
+
+services:
+  db:
+    # NOTE: No persistance storage configured.
+    # See: https://hub.docker.com/_/postgres/
+    image: postgres
+    # NOTE: this works for bitnami, not sure if this works for regular
+    # postgres image
+    volumes:
+      - ./docker-init-db.sql:/docker-entrypoint-initdb.d/init_db.sql
+
+  web:
+    build: .
+    environment:
+      - DJANGO_SETTINGS_MODULE=beheerconsole.conf.docker
+      - SECRET_KEY=${SECRET_KEY:-qz#7v(_8ems7)3rp)u0pxi_43x2v6t!)8w6rc9yv*=sfq_558k}
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
