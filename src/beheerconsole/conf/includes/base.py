@@ -93,6 +93,8 @@ INSTALLED_APPS = [
     "axes",
     # Project applications.
     "beheerconsole.accounts",
+    "beheerconsole.applications",
+    "beheerconsole.processes",
     "beheerconsole.utils",
 ]
 
