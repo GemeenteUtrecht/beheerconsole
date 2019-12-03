@@ -266,7 +266,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Allow logging in with both username+password and email+password
 AUTHENTICATION_BACKENDS = [
     "axes.backends.AxesBackend",
-    "openzaak.accounts.backends.UserModelEmailBackend",
+    "beheerconsole.accounts.backends.UserModelEmailBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
 
