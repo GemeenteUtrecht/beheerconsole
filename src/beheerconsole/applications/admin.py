@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Application
+from .models import Application, Layer
 
 
 @admin.register(Application)
@@ -11,3 +11,8 @@ class ApplicationAdmin(admin.ModelAdmin):
         "name",
         "vendor",
     )
+
+
+@admin.register(Layer)
+class LayerAdmin(admin.ModelAdmin):
+    pass

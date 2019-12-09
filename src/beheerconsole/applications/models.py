@@ -31,6 +31,13 @@ class Application(models.Model):
         blank=True,
         help_text=_("URL to the code repository, e.g. Github, Gitlab, Bitbucket..."),
     )
+    # relations
+    layer = models.ForeignKey(
+        "Layer", on_delete=models.CASCADE,
+        related_name="applications",
+        verbose_name=_("layer"),
+        help_text=_("The layer of the application."),
+    )
 
     class Meta:
         verbose_name = _("application")
@@ -38,3 +45,14 @@ class Application(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Layer(models.Model):
+    tier = models.PositiveSmallIntegerField(_("tier"), help_text=_("The tier number of the layer"))
+    description = models.TextField(
+        _("description"), blank=True,
+        help_text="a description of the layer - what is it aimed for... "
+    )
+
+    def __str__(self):
+        return f"Layer {self.tier}"
