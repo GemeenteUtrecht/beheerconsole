@@ -87,3 +87,9 @@ class Process(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def applications_with_layers(self):
+        apps = [{"layer": app.layer, "application": app} for app in self.applications.order_by("-layer")]
+        print(apps)
+        return apps

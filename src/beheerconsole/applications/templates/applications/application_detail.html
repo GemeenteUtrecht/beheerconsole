@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div>
+        <h1>{{ application.name }}</h1>
+        <p>{{ application.description }}</p>
+    </div>
+
+    <div>
+        <h2>Links</h2>
+        <p>Go to <a href="{{ application.url }}">landing</a> page</p>
+        <p>Go to <a href="{{ application.admin_url }}">admin</a> page</p>
+    </div>
+    <div>
+        <h2>Contact</h2>
+        <p>Vendor: {{ application.vendor }}</p>
+    </div>
+
+    <!-- Processes -->
+    <h1>Used by processes</h1>
+    <ul>
+        {% for process in application.processes.all %}
+            <li>{{ process }}</li>
+        {% empty %}
+        <p>No processes</p>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

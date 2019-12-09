@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block content %}
+
+    <h1>Processes</h1>
+    <div>
+        {% for process in object_list %}
+        <div>
+            <a href="{% url 'processes:process-detail' pk=process.pk %}" >Process {{ process }}</a>
+            <p>Department: {{ process.department }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
