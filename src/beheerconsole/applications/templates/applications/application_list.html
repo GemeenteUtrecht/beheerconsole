@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block content %}
+
+    <h1>Applications</h1>
+    <div>
+        {% for application in object_list %}
+        <div>
+            <a href="{% url 'applications:application-detail' pk=application.pk %}" >{{ application }}</a>
+            <p>{{ application.vendor }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

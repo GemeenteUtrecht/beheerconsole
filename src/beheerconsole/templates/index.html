@@ -1,0 +1,27 @@
+{% extends "master.html" %}
+{% load static %}
+
+
+{% block content %}
+<article class="content">
+  <img class="demo__logo-img" src="{% static 'img/maykinmedia_logo.png' %}">
+
+  <h1>Beheerconsole</h1>
+  <div>
+    <ul>
+      <li>
+        <a href="{% url 'processes:process-list' %}">Processes</a>
+      </li>
+      <li>
+        <a href="{% url 'applications:application-list' %}">Applications</a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div>
+    <p>Go to <a href="{% url 'admin:index' %}">admin</a></p>
+  </div>
+
+</article>
+{% endblock %}
