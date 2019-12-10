@@ -1,0 +1,18 @@
+.content {
+  padding: 0.5em;
+
+  .content__list {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .content__item {
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em;
+  }
+
+  .content__admin {
+    margin-top: 2em;
+  }
+}

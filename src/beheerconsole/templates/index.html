@@ -6,22 +6,22 @@
 <article class="content">
   <img class="demo__logo-img" src="{% static 'img/maykinmedia_logo.png' %}">
 
-  <h1>Beheerconsole</h1>
-  <div>
-    <ul>
-      <li>
+  <header class="content__header">
+    <h1>Beheerconsole</h1>
+  </header>
+
+  <section class="content__list">
+      <div class="content__item">
         <a href="{% url 'processes:process-list' %}">Processes</a>
-      </li>
-      <li>
+      </div>
+      <div class="content__item">
         <a href="{% url 'applications:application-list' %}">Applications</a>
-      </li>
+      </div>
+  </section>
 
-    </ul>
-  </div>
-
-  <div>
-    <p>Go to <a href="{% url 'admin:index' %}">admin</a></p>
-  </div>
+  <section class="content__admin">
+    <span>Go to <a href="{% url 'admin:index' %}">admin</a></span>
+  </section>
 
 </article>
 {% endblock %}
