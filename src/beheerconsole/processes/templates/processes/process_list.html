@@ -3,14 +3,18 @@
 
 {% block content %}
 
-    <h1>Processes</h1>
-    <div>
+    <article class="process-list">
+        <header class="process-list__header">
+            <h1>Processes</h1>
+        </header>
+
         {% for process in object_list %}
-        <div>
+        <section class="process-list__item">
             <a href="{% url 'processes:process-detail' pk=process.pk %}" >Process {{ process }}</a>
-            <p>Department: {{ process.department }}</p>
-        </div>
+            <span>Department: {{ process.department }}</span>
+        </section>
         {% endfor %}
-    </div>
+
+    </article>
 
 {% endblock %}

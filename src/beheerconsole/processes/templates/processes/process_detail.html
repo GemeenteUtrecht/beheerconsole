@@ -2,49 +2,57 @@
 {% load static %}
 
 {% block content %}
-    <h1>Main information</h1>
+<article class="process">
+    <header>
+        <h1>{{ process.name }}</h1>
+    </header>
 
-    <div>
-        <h2>Process {{ process.name }}</h2>
-        <p>{{ process.description }}</p>
-    </div>
+    <section class="process-desc">
+        <div class="process-desc__column">
+            <h2>Process {{ process.name }}</h2>
+            <p>{{ process.description }}</p>
+        </div>
 
-    <div>
-        <h2>Department {{ process.department }}</h2>
-        <p>{{ process.department.contact_details }}</p>
-    </div>
-
+        <div class="process-desc__column">
+            <h2>Department {{ process.department }}</h2>
+            <p>{{ process.department.contact_details }}</p>
+        </div>
+    </section>
 
     <!-- Relations with other processes -->
-    <h1>Relations with other processes</h1>
-    <h2>Initiated by </h2>
-    {% for initiating_process in process.initiating_processes.all %}
-        <a href="{% url 'processes:process-detail' pk=initiating_process.pk %}">{{ initiating_process.name }}</a>
-    {% empty %}
-        <p>None</p>
-    {% endfor %}
+    <section class="process-relation">
+        <h1>Relations with other processes</h1>
+        <h2>Initiated by </h2>
+        {% for initiating_process in process.initiating_processes.all %}
+            <a href="{% url 'processes:process-detail' pk=initiating_process.pk %}">{{ initiating_process.name }}</a>
+        {% empty %}
+            <p>None</p>
+        {% endfor %}
 
-    <h2> Initiates </h2>
-    {% for initiated_process in process.initiates.all %}
-        <a href="{% url 'processes:process-detail' pk=initiated_process.pk %}">{{ initiated_process.name }}</a>
-    {% empty %}
-        <p>None</p>
-    {% endfor %}
+        <h2> Initiates </h2>
+        {% for initiated_process in process.initiates.all %}
+            <a href="{% url 'processes:process-detail' pk=initiated_process.pk %}">{{ initiated_process.name }}</a>
+        {% empty %}
+            <p>None</p>
+        {% endfor %}
+    </section>
 
 
     <!-- Applications -->
-    <h1>Applications</h1>
-    {% regroup object.applications_with_layers by layer as layer_list %}
-    {% for layer, apps in layer_list %}
-        <li>{{ layer }}</li>
-        <ul>
-            {% for app in apps %}
-            <li> {{ app.application }}</li>
-            {% endfor %}
-        </ul>
-    {% empty %}
-        <p>No applications are configured for this process</p>
-    {% endfor %}
+    <section class="process-app">
+        <h1>Applications</h1>
+        {% regroup object.applications_with_layers by layer as layer_list %}
+        {% for layer, apps in layer_list %}
+            <li>{{ layer }}</li>
+            <ul>
+                {% for app in apps %}
+                <li> {{ app.application }}</li>
+                {% endfor %}
+            </ul>
+        {% empty %}
+            <p>No applications are configured for this process</p>
+        {% endfor %}
+    </section>
 
-
+</article>
 {% endblock %}
