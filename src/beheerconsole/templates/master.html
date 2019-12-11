@@ -14,6 +14,10 @@
 
     <body class="{% block body-class %}{% endblock %}">
         <main>
+            <div class="logo">
+                <img class="demo__logo-img" src="{% static 'img/maykinmedia_logo.png' %}">
+            </div>
+
             {% block content %}
                 Override <code>{% verbatim %}{% block content %}{% endverbatim %}</code>
                 to get some actual content.
