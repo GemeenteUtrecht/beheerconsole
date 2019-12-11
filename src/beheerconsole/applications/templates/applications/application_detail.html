@@ -2,30 +2,38 @@
 {% load static %}
 
 {% block content %}
+<article class="article">
 
-    <div>
-        <h1>{{ application.name }}</h1>
-        <p>{{ application.description }}</p>
-    </div>
+    <section class="flex-container section">
+        <div class="flex-column flex-column--center flex-column--large">
+            <h2>{{ application.name }}</h2>
+            <p>{{ application.description }}</p>
+        </div>
 
-    <div>
-        <h2>Links</h2>
-        <p>Go to <a href="{{ application.url }}">landing</a> page</p>
-        <p>Go to <a href="{{ application.admin_url }}">admin</a> page</p>
-    </div>
-    <div>
-        <h2>Contact</h2>
-        <p>Vendor: {{ application.vendor }}</p>
-    </div>
+        <div class="flex-column flex-column--small">
+            <h4>Links</h4>
+                <div>
+                    <i class="fa fa-user"></i>
+                    Go to <a href="{{ application.url }}">landing</a> page
+                </div>
+                    <i class="fa fa-external-link"></i>
+                    Go to <a href="{{ application.admin_url }}">admin</a> page
+
+            <h4>Contact</h4>
+            <span>Vendor: {{ application.vendor }}</span>
+        </div>
+    </section>
 
     <!-- Processes -->
-    <h1>Used by processes</h1>
-    <ul>
-        {% for process in application.processes.all %}
-            <li>{{ process }}</li>
-        {% empty %}
-        <p>No processes</p>
-        {% endfor %}
-    </ul>
-
+    <section class="section">
+        <h1 class="header">Used by processes</h1>
+        <div class="flex-container flex-container--even">
+            {% for process in application.processes.all %}
+                <a class="item-link" href="{% url 'processes:process-detail' pk=process.pk %}">{{ process }}</a>
+            {% empty %}
+            <p>No processes</p>
+            {% endfor %}
+        </div>
+    </section>
+</article>
 {% endblock %}
