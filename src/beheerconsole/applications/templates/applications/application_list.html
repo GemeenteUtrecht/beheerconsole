@@ -9,6 +9,7 @@
 
         {% for application in object_list %}
         <div class="list-item">
+            <i class="fa fa-folder-open"></i>
             <a href="{% url 'applications:application-detail' pk=application.pk %}" >{{ application }}</a>
             <p>{{ application.vendor }}</p>
         </div>

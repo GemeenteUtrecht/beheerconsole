@@ -17,7 +17,9 @@
   "author": "Maykin Media",
   "license": "UNLICENSED",
   "homepage": "https://maykinmedia.nl",
-  "dependencies": {},
+  "dependencies": {
+    "font-awesome": "^4.7.0"
+  },
   "devDependencies": {
     "@babel/core": "latest",
     "@babel/polyfill": "latest",
