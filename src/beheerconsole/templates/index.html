@@ -3,20 +3,15 @@
 
 
 {% block content %}
-<article class="content">
-  <img class="demo__logo-img" src="{% static 'img/maykinmedia_logo.png' %}">
+<article class="content article">
 
-  <header class="content__header">
+  <header class="header">
     <h1>Beheerconsole</h1>
   </header>
 
-  <section class="content__list">
-      <div class="content__item">
-        <a href="{% url 'processes:process-list' %}">Processes</a>
-      </div>
-      <div class="content__item">
-        <a href="{% url 'applications:application-list' %}">Applications</a>
-      </div>
+  <section class="content__list flex-container">
+        <a class="content__item item-link" href="{% url 'processes:process-list' %}">Processes</a>
+        <a class="content__item item-link" href="{% url 'applications:application-list' %}">Applications</a>
   </section>
 
   <section class="content__admin">
