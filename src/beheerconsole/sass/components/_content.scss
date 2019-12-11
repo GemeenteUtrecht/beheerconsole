@@ -1,18 +1,22 @@
 .content {
-  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
 
-  .content__list {
-    display: flex;
-    flex-flow: row wrap;
+  &__list {
+    justify-content: center;
+    flex: 1;
   }
 
-  .content__item {
-    border: 1px solid black;
+  &__item {
     padding: 1em;
     margin: 1em;
+    height: 20px;
+    text-decoration: none;
   }
 
-  .content__admin {
-    margin-top: 2em;
+  &__admin {
+    padding: 0 1em;
+    text-align: right;
   }
 }

@@ -1,0 +1,31 @@
+.header {
+  text-align: center;
+}
+
+.article {
+  max-width: 80em;
+  margin: 0 auto;
+}
+
+.section + .section {
+  margin-top: 4em;
+  border-top: 1px solid grey;
+}
+
+.item-link {
+  border: 1px solid black;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 0.5em;
+
+  &:hover {
+    background-color: blue;
+    border-color: blue;
+    color: white;
+  }
+}
+
+.list-item {
+  padding: 1em;
+  margin: 1em;
+}
