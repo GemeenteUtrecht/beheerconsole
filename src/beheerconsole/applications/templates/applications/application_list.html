@@ -7,13 +7,26 @@
             <h1>Applications</h1>
         </header>
 
-        {% for application in object_list %}
-        <div class="list-item">
-            <i class="fa fa-folder-open"></i>
-            <a href="{% url 'applications:application-detail' pk=application.pk %}" >{{ application }}</a>
-            <p>{{ application.vendor }}</p>
-        </div>
-        {% endfor %}
+        <section class="flex-container">
+            <div class="flex-column">
+                {% for application in object_list %}
+                <div class="list-item">
+                    <i class="fa fa-folder-open"></i>
+                    <a href="{% url 'applications:application-detail' pk=application.pk %}" >{{ application }}</a>
+                    <p>{{ application.vendor }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="filter">
+                <h4>Filter</h4>
+                <form action="" method="get">
+                    {{ filter.form.as_p }}
+                    <input type="submit" class="button"/>
+                </form>
+            </div>
+
+        </section>
     </article>
 
 {% endblock %}
