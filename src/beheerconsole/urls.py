@@ -35,7 +35,7 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     # Simply show the master template.
-    path(r"", TemplateView.as_view(template_name="index.html")),
+    path(r"", TemplateView.as_view(template_name="index.html"), name="index"),
     path('processes/', include('beheerconsole.processes.urls')),
     path('software/', include('beheerconsole.applications.urls')),
 ]

@@ -1,6 +1,12 @@
 {% extends "master.html" %}
 {% load static %}
 
+{% block crumbs %}
+    <li class="breadcrumbs__item"><a href="{% url 'applications:application-list' %}">Software</a></li>
+    <li class="breadcrumbs__item"><a href="{% url 'applications:application-detail' pk=application.pk %}">{{ application }}</a></li>
+{% endblock %}
+
+
 {% block content %}
 <article class="article aplication">
     <section class="flex-container section">

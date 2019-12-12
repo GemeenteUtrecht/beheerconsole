@@ -1,6 +1,13 @@
 {% extends "master.html" %}
 {% load static %}
 
+
+{% block crumbs %}
+    <li class="breadcrumbs__item"><a href="{% url 'processes:process-list' %}">Processes</a></li>
+    <li class="breadcrumbs__item"><a href="{% url 'processes:process-detail' pk=process.pk %}">{{ process }}</a></li>
+{% endblock %}
+
+
 {% block content %}
 <article class="process article">
 

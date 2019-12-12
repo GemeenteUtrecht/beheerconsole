@@ -19,6 +19,16 @@
                 <img class="demo__logo-img" src="{% static 'img/maykinmedia_logo.png' %}">
             </div>
 
+            {% block breadcrumbs %}
+                <div class="article">
+                    <ol class="breadcrumbs">
+                        <li class="breadcrumbs__item"><a href="{% url 'index' %}">Home</a></li>
+                        {% block crumbs %}
+                        {% endblock %}
+                    </ol>
+                </div>
+            {% endblock %}
+
             {% block content %}
                 Override <code>{% verbatim %}{% block content %}{% endverbatim %}</code>
                 to get some actual content.
