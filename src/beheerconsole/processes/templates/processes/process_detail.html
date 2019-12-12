@@ -28,23 +28,33 @@
     </section>
 
     <!-- Relations with other processes -->
-    <section class="section">
+    <section class="section ">
         <h1 class="header">Relations with other processes</h1>
-        <div class="flex-container">
+        <div class="flex-container process-relation">
+
             <div class="flex-column flex-column--center">
                 <h4>Initiated by </h4>
-                {% for initiating_process in process.initiating_processes.all %}
-                    <a href="{% url 'processes:process-detail' pk=initiating_process.pk %}" class="item-link">{{ initiating_process.name }}</a>
-                {% empty %}
-                    <p>None</p>
-                {% endfor %}
+                <div class="process-relation__column">
+                    {% for initiating_process in process.initiating_processes.all %}
+                        <a href="{% url 'processes:process-detail' pk=initiating_process.pk %}" class="item-link process-relation__item">{{ initiating_process.name }}</a>
+                    {% empty %}
+                        <p>None</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            <div class="flex-column flex-column--center process-relation__column process-relation__column--center">
+                <div class="process-relation__item process-relation__item--center">
+                    {{ process }}
+                </div>
             </div>
 
             <div class="flex-column flex-column--center">
                 <h4> Initiates </h4>
-                <div class="flex-container flex-container--even">
+                <div class="process-relation__column">
                     {% for initiated_process in process.initiates.all %}
-                        <a href="{% url 'processes:process-detail' pk=initiated_process.pk %}" class="item-link">{{ initiated_process.name }}</a>
+                        <a href="{% url 'processes:process-detail' pk=initiated_process.pk %}" class="item-link process-relation__item">{{ initiated_process.name }}</a>
                     {% empty %}
                         <p>None</p>
                     {% endfor %}
