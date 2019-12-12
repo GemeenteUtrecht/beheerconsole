@@ -2,8 +2,7 @@
 {% load static %}
 
 {% block content %}
-<article class="article">
-
+<article class="article aplication">
     <section class="flex-container section">
         <div class="flex-column flex-column--center flex-column--large">
             <h2>{{ application.name }}</h2>
@@ -11,17 +10,24 @@
         </div>
 
         <div class="flex-column flex-column--small">
-            <h4>Links</h4>
-                <div>
-                    <i class="fa fa-external-link"></i>
-                    Go to <a href="{{ application.url }}">landing</a> page
-                </div>
-                    <i class="fa fa-external-link"></i>
-                    Go to <a href="{{ application.admin_url }}">admin</a> page
+            <div class="price-tag application__layer">
+                CG {{ application.layer }}
+            </div>
 
-            <h4>Contact</h4>
-            <span>Vendor: {{ application.vendor }}</span>
+            <div>
+                <h4>Links</h4>
+                    <div>
+                        <i class="fa fa-external-link"></i>
+                        Go to <a href="{{ application.url }}">landing</a> page
+                    </div>
+                        <i class="fa fa-external-link"></i>
+                        Go to <a href="{{ application.admin_url }}">admin</a> page
+
+                <h4>Contact</h4>
+                <span>Vendor: {{ application.vendor }}</span>
+            </div>
         </div>
+
     </section>
 
     <!-- Processes -->
