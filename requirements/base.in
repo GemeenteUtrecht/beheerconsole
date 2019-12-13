@@ -5,6 +5,7 @@ raven
 python-dotenv
 python-decouple  # processing of envvar configs
 uwsgi
+pillow
 
 # Framework libraries
 Django

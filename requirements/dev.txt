@@ -35,6 +35,7 @@ jinja2==2.10.3            # via sphinx
 markupsafe==1.1.1         # via jinja2
 packaging==19.2           # via sphinx
 pathspec==0.6.0           # via black
+pillow==6.2.1
 pip-tools==4.3.0
 psycopg2==2.8.4
 pygments==2.5.2           # via sphinx
