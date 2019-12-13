@@ -6,18 +6,18 @@
 
 
 {% block content %}
-<article class="content article">
+<article class="index">
 
   <header class="header">
     <h1>Beheerconsole</h1>
   </header>
 
-  <section class="content__list flex-container">
-        <a class="content__item item-link" href="{% url 'processes:process-list' %}">Processes</a>
-        <a class="content__item item-link" href="{% url 'applications:application-list' %}">Applications</a>
+  <section class="index__list flex-container">
+        <a class="index__item" href="{% url 'processes:process-list' %}">Processes</a>
+        <a class="index__item" href="{% url 'applications:application-list' %}">Applications</a>
   </section>
 
-  <section class="content__admin">
+  <section class="index__admin">
     <span>Go to <a href="{% url 'admin:index' %}">admin</a></span>
   </section>
 

@@ -1,0 +1,15 @@
+.breadcrumbs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: .75em 1em;
+  background-color: #E5E5E5;
+  margin-block-start: 0;
+  margin-block-end: 0;
+
+  &__item+&__item::before {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    content: "/";
+  }
+}
