@@ -16,7 +16,6 @@
     text-decoration: none;
     border: 1px solid #2A5587;
     background-color: #2A5587;
-    color: #FFF;
     cursor: pointer;
     font-size: 1.2em;
     text-align: center;
@@ -26,6 +25,10 @@
       border-color: #3669A5;
       transform: scale(1.02);
     }
+  }
+
+  a.index__item  {
+    color: #FFF;
   }
 
   &__item+&__item {
