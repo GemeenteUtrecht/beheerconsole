@@ -14,27 +14,63 @@
     </head>
 
     <body class="{% block body-class %}{% endblock %}">
-        <main>
-            <div class="logo">
-                <img class="demo__logo-img" src="{% static 'img/maykinmedia_logo.png' %}">
-            </div>
+        <header>
+            {% block header %}
+                <div class="container">
+                    <div class="logo">
+                        <img class="logo__img" src="{% static 'img/wapen-utrecht-rood.svg' %}">
+                    </div>
+                </div>
 
-            {% block breadcrumbs %}
-                <div class="article">
+            {% endblock %}
+        </header>
+        <main>
+            {% block main %}
+            <!-- START container for centering -->
+            <div class="container">
+
+                {% block breadcrumbs %}
                     <ol class="breadcrumbs">
                         <li class="breadcrumbs__item"><a href="{% url 'index' %}">Home</a></li>
                         {% block crumbs %}
                         {% endblock %}
                     </ol>
-                </div>
-            {% endblock %}
+                {% endblock %}
 
-            {% block content %}
-                Override <code>{% verbatim %}{% block content %}{% endverbatim %}</code>
-                to get some actual content.
+                <div class="card shadow content p-small">
+                    {% block content %}
+                        Override <code>{% verbatim %}{% block content %}{% endverbatim %}</code>
+                        to get some actual content.
+                    {% endblock %}
+                </div>
+
+            </div>
+            <!-- END container -->
             {% endblock %}
         </main>
 
+        <footer class="footer">
+            <!-- START container for centering -->
+            <div class="container">
+                <div class="footer__column">
+                    <h3>GEMEENTE UTRECHT</h3>
+                    <p>Maandag t/m vrijdag 8.30 - 17.30 uur,<br> donderdag tot 20.00 uur</p>
+
+                    <div class="flex-container">
+                        <div class="flex-column">
+                            <h3>Telefoon</h3>
+                            <p>14 030</p>
+                        </div>
+                        <div class="flex-column">
+                            <h3>Adres</h3>
+                            <p>Stadskantoor<br> Stadsplateau 1<br> 3521 AZ Utrecht</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END container -->
+            </div>
+        </footer>
 
         <script src="{% static 'js/main.js' %}"></script>
     </body>
