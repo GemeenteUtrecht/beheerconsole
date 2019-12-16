@@ -31,6 +31,10 @@ class Application(models.Model):
         blank=True,
         help_text=_("URL to the code repository, e.g. Github, Gitlab, Bitbucket..."),
     )
+    logo = models.ImageField(
+        _("logo"), upload_to='logos/', null=True,
+        help_text=_("Logo image of the application"),
+    )
     # relations
     layer = models.ForeignKey(
         "Layer", on_delete=models.CASCADE,

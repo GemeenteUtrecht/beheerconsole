@@ -8,11 +8,16 @@
 
 
 {% block content %}
-<article class="aplication">
+<article class="p-small">
     <section class="flex-container section">
-        <div class="flex-column flex-column--center flex-column--large">
-            <h2>{{ application.name }}</h2>
-            <p>{{ application.description }}</p>
+        <div class="flex-column flex-column--large">
+            <h2 class="header">{{ application.name }}</h2>
+            <div class="application-desc">
+            {% if application.logo %}
+                <img class="application-desc__img" src="{{ application.logo.url }}">
+            {% endif %}
+            <p class="application-desc__text">{{ application.description }}</p>
+            </div>
         </div>
 
         <div class="flex-column flex-column--small">

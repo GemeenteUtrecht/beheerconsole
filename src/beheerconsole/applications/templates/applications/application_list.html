@@ -7,18 +7,30 @@
 
 
 {% block content %}
-    <article>
+    <article class="p-small">
         <header class="header">
             <h1>Applications</h1>
         </header>
 
+        <p class="p-small p-left">
+            Here is the list of all available applications and their vendors. <br>
+            You can filter the applications based on their Common Ground layer. <br>
+            For further additional information about each application please click on the application name.
+        </p>
+
         <section class="flex-container">
-            <div class="flex-column">
+
+            <div class="flex-column p-left">
                 {% for application in object_list %}
-                <div class="list-item">
-                    <i class="fa fa-folder-open"></i>
+                <div class="list-item card">
+                    {% if application.logo %}
+                        <img class="list-item__img" src="{{ application.logo.url }}">
+                    {% endif %}
+
+                    <div class="list-item__desc">
                     <a href="{% url 'applications:application-detail' pk=application.pk %}" >{{ application }}</a>
                     <p>{{ application.vendor }}</p>
+                    </div>
                 </div>
                 {% endfor %}
             </div>

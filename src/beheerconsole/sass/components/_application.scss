@@ -1,0 +1,16 @@
+.application-desc {
+  padding-left: 2em;
+
+  &__img {
+    max-width: 200px;
+  }
+
+  &__text {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__img + &__text {
+    margin-left: 1em;
+  }
+}
