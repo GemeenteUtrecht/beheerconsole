@@ -1,22 +1,36 @@
 {% extends "master.html" %}
-{% load static %}
+{% load i18n %}
 
 {% block crumbs %}
-    <li class="breadcrumbs__item"><a href="{% url 'applications:application-list' %}">Software</a></li>
-    <li class="breadcrumbs__item"><a href="{% url 'applications:application-detail' pk=application.pk %}">{{ application }}</a></li>
+    <li class="breadcrumbs__item">
+        <a href="{% url 'applications:application-list' %}">
+            {% trans "Software" %}
+        </a>
+    </li>
+    <li class="breadcrumbs__item">
+        <a href="{% url 'applications:application-detail' pk=application.pk %}">
+            {{ application }}
+        </a>
+    </li>
 {% endblock %}
+
+
+{% block content-header-subtitle %}
+    {% trans "Application details" %}
+{% endblock %}
+{% block content-header-title %}{{ application.name }}{% endblock %}
 
 
 {% block content %}
 <article class="p-small">
-    <h2 class="header">{{ application.name }}</h2>
+    <h2 class="header"></h2>
     <section class="flex-container section">
         <div class="flex-column flex-column--large">
             <div class="application-desc">
             {% if application.logo %}
                 <img class="application-desc__img" src="{{ application.logo.url }}">
             {% endif %}
-            <p class="application-desc__text">{{ application.description }}</p>
+            <p class="application-desc__text">{{ application.description|linebreaksbr }}</p>
             </div>
         </div>
 
