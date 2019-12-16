@@ -1,0 +1,20 @@
+.application-desc {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 2em;
+
+  &__img {
+    max-width: 200px;
+  }
+
+  &__text {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+  }
+
+  &__img + &__text {
+    margin-left: 1em;
+  }
+}

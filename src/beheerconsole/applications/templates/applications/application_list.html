@@ -1,16 +1,51 @@
 {% extends "master.html" %}
-{% load static %}
+{% load i18n %}
+
+{% block crumbs %}
+    <li class="breadcrumbs__item">
+        <a href="{% url 'applications:application-list' %}">
+            {% trans "Software" %}
+        </a>
+    </li>
+{% endblock %}
+
+
+{% block content-header-subtitle %}
+    {% trans "List of applications deployed in the organization" %}
+{% endblock %}
+{% block content-header-title %}{% trans "Applications" %}{% endblock %}
+
+{% block content-header-explanation %}
+{% blocktrans trimmed %}
+On this page you see a list of all deployed applications with their vendors. You can use
+the filters on the right to select applications from a particular layer in the
+<a href="https://commonground.nl/" target="_blank" rel="noopener nofollow">Common Ground</a> vision.
+<br>
+For more details about an application, please go to the detail page where you can find
+contact details for the vendor and utility URLs.
+{% endblocktrans %}
+{% endblock %}
+
 
 {% block content %}
+    <article class="list-view">
 
-    <h1>Applications</h1>
-    <div>
-        {% for application in object_list %}
-        <div>
-            <a href="{% url 'applications:application-detail' pk=application.pk %}" >{{ application }}</a>
-            <p>{{ application.vendor }}</p>
-        </div>
-        {% endfor %}
-    </div>
+        <section class="list-view__results">
+            {% for application in object_list %}
+
+                {% blocktrans with vendor=application.vendor asvar card_details trimmed %}
+                    <i class="fa fa-bug"></i> {{ vendor }}
+                {% endblocktrans %}
+
+                {% include "includes/list_card.html" with image=application.logo.url url_name='applications:application-detail' obj=application card_title=application.name card_details=card_details %}
+
+            {% endfor %}
+        </section>
+
+        <aside class="list-view__filters">
+            {% include "includes/filters.html" %}
+        </aside>
+
+    </article>
 
 {% endblock %}

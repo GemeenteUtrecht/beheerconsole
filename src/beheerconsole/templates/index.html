@@ -1,27 +1,36 @@
 {% extends "master.html" %}
-{% load static %}
+{% load i18n %}
+
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content-header-subtitle %}{% trans "Manage processes and applications" %}{% endblock %}
+{% block content-header-title %}{% trans "Beheerconsole" %}{% endblock %}
+{% block content-header-explanation %}
+{% blocktrans trimmed %}
+    The beheerconsole gives insight into the deployed processes within the
+    organization and the applications that facilitate this. Processes and
+    applications are related to each other.
+    <br>
+    Please choose your perspective.
+{% endblocktrans %}
+{% endblock %}
 
 
 {% block content %}
-<article class="content">
-  <img class="demo__logo-img" src="{% static 'img/maykinmedia_logo.png' %}">
+<article class="index">
 
-  <h1>Beheerconsole</h1>
-  <div>
-    <ul>
-      <li>
-        <a href="{% url 'processes:process-list' %}">Processes</a>
-      </li>
-      <li>
-        <a href="{% url 'applications:application-list' %}">Applications</a>
-      </li>
-
-    </ul>
-  </div>
-
-  <div>
-    <p>Go to <a href="{% url 'admin:index' %}">admin</a></p>
-  </div>
+    <a class="index__item" href="{% url 'processes:process-list' %}">
+        {% trans "Processes" %}
+    </a>
+    <span class="index__item-separator"></span>
+    <a class="index__item" href="{% url 'applications:application-list' %}">
+        {% trans "Applications" %}
+    </a>
 
 </article>
+
+<section class="index-admin">
+    <span>Go to <a href="{% url 'admin:index' %}">admin</a></span>
+</section>
 {% endblock %}

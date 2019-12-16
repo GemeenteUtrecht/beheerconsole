@@ -1,31 +1,70 @@
 {% extends "master.html" %}
-{% load static %}
+{% load i18n %}
+
+{% block crumbs %}
+    <li class="breadcrumbs__item">
+        <a href="{% url 'applications:application-list' %}">
+            {% trans "Software" %}
+        </a>
+    </li>
+    <li class="breadcrumbs__item">
+        <a href="{% url 'applications:application-detail' pk=application.pk %}">
+            {{ application }}
+        </a>
+    </li>
+{% endblock %}
+
+
+{% block content-header-subtitle %}
+    {% trans "Application details" %}
+{% endblock %}
+{% block content-header-title %}{{ application.name }}{% endblock %}
+
 
 {% block content %}
+<article class="p-small">
+    <h2 class="header"></h2>
+    <section class="flex-container section">
+        <div class="flex-column flex-column--large">
+            <div class="application-desc">
+            {% if application.logo %}
+                <img class="application-desc__img" src="{{ application.logo.url }}">
+            {% endif %}
+            <p class="application-desc__text">{{ application.description|linebreaksbr }}</p>
+            </div>
+        </div>
 
-    <div>
-        <h1>{{ application.name }}</h1>
-        <p>{{ application.description }}</p>
-    </div>
+        <div class="flex-column flex-column--small">
+            <div class="price-tag application__layer">
+                CG {{ application.layer }}
+            </div>
 
-    <div>
-        <h2>Links</h2>
-        <p>Go to <a href="{{ application.url }}">landing</a> page</p>
-        <p>Go to <a href="{{ application.admin_url }}">admin</a> page</p>
-    </div>
-    <div>
-        <h2>Contact</h2>
-        <p>Vendor: {{ application.vendor }}</p>
-    </div>
+            <div>
+                <h4>Links</h4>
+                    <div>
+                        <i class="fa fa-external-link"></i>
+                        Go to <a href="{{ application.url }}">landing</a> page
+                    </div>
+                        <i class="fa fa-external-link"></i>
+                        Go to <a href="{{ application.admin_url }}">admin</a> page
+
+                <h4>Contact</h4>
+                <span>Vendor: {{ application.vendor }}</span>
+            </div>
+        </div>
+
+    </section>
 
     <!-- Processes -->
-    <h1>Used by processes</h1>
-    <ul>
-        {% for process in application.processes.all %}
-            <li>{{ process }}</li>
-        {% empty %}
-        <p>No processes</p>
-        {% endfor %}
-    </ul>
-
+    <section class="section">
+        <h1 class="header">Used by processes</h1>
+        <div class="flex-container flex-container--even">
+            {% for process in application.processes.all %}
+                <a class="item-link" href="{% url 'processes:process-detail' pk=process.pk %}">{{ process }}</a>
+            {% empty %}
+            <p>No processes</p>
+            {% endfor %}
+        </div>
+    </section>
+</article>
 {% endblock %}

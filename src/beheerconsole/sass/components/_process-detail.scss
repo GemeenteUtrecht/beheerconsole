@@ -1,0 +1,35 @@
+@import "../lib/colors";
+@import "../lib/typography";
+
+.process-detail {
+
+  & &__information {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  & &__information-section {
+    width: 40%;
+
+    > p {
+      margin: 0;
+    }
+  }
+
+  & &__process-relations,
+  & &__related-apps {
+    padding: 0 2.5rem;
+  }
+
+  & &__section-title {
+    @include title;
+    font-size: 1.5rem;
+    text-align: left;
+
+    padding-bottom: 0.5rem;
+    border-bottom: solid 2px $theme-primary-color;
+  }
+}

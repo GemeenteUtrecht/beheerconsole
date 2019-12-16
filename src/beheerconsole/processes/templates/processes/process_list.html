@@ -1,16 +1,46 @@
 {% extends "master.html" %}
-{% load static %}
+{% load static i18n %}
+
+{% block crumbs %}
+    <li class="breadcrumbs__item">
+        <a href="{% url 'processes:process-list' %}">
+            {% trans "Processes" %}
+        </a>
+    </li>
+{% endblock %}
+
+
+{% block content-header-subtitle %}{% trans "Deployed processes in the organization" %}{% endblock %}
+{% block content-header-title %}{% trans "Processes" %}{% endblock %}
+{% block content-header-explanation %}
+{% blocktrans trimmed %}
+    On this page you see a list of processes as they are handled
+    within the organization. You can use the filters on the right
+    hand side to filter by the department owning the process.
+{% endblocktrans %}
+{% endblock %}
+
 
 {% block content %}
 
-    <h1>Processes</h1>
-    <div>
-        {% for process in object_list %}
-        <div>
-            <a href="{% url 'processes:process-detail' pk=process.pk %}" >Process {{ process }}</a>
-            <p>Department: {{ process.department }}</p>
-        </div>
-        {% endfor %}
-    </div>
+    <article class="list-view">
+
+        <section class="list-view__results">
+            {% for process in object_list %}
+
+                {% blocktrans with dep=process.department asvar card_details trimmed %}
+                    Department: {{ dep }}
+                {% endblocktrans %}
+
+                {% include "includes/list_card.html" with image=None url_name='processes:process-detail' obj=process card_title=process.name card_details=card_details %}
+
+            {% endfor %}
+        </section>
+
+        <aside class="list-view__filters">
+            {% include "includes/filters.html" %}
+        </aside>
+
+    </article>
 
 {% endblock %}

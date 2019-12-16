@@ -1,0 +1,42 @@
+.process {
+
+  &-app {
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+  }
+
+  &-app__row {
+    padding: 1em;
+    align-items: center;
+    border-bottom: dashed 1px $border-color;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .process-relation {
+     &__column {
+        display: flex;
+        flex-direction: column;
+     }
+
+    &__column--center {
+      justify-content: center;
+    }
+
+
+    &__item {
+      margin: auto auto 1em;
+    }
+
+    &__item--center {
+      margin: auto;
+      font-size: 1.5em;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 0.5em;
+    }
+  }
+}

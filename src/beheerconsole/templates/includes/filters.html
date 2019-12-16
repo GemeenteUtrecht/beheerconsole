@@ -1,0 +1,10 @@
+{% load i18n %}
+
+<h4>{% trans "Filter" %}</h4>
+
+<form action="" method="get">
+    {{ filter.form.as_p }}
+    <button type="submit" class="button button--submit">
+        {{ btn_text|default:_("Submit")}}
+    </button>
+</form>

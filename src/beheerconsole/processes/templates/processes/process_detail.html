@@ -1,50 +1,114 @@
 {% extends "master.html" %}
-{% load static %}
+{% load i18n %}
+
+
+{% block crumbs %}
+    <li class="breadcrumbs__item">
+        <a href="{% url 'processes:process-list' %}">
+            {% trans "Processes" %}
+        </a>
+    </li>
+    <li class="breadcrumbs__item">
+        <a href="{% url 'processes:process-detail' pk=process.pk %}">
+            {{ process }}
+        </a>
+    </li>
+{% endblock %}
+
+
+{% block content-header-subtitle %}{% trans "Process details" %}{% endblock %}
+{% block content-header-title %}{{ process.name }}{% endblock %}
+
+
 
 {% block content %}
-    <h1>Main information</h1>
+<article class="process process-detail">
 
-    <div>
-        <h2>Process {{ process.name }}</h2>
-        <p>{{ process.description }}</p>
-    </div>
+    <section class="process-detail__information">
 
-    <div>
-        <h2>Department {{ process.department }}</h2>
-        <p>{{ process.department.contact_details }}</p>
-    </div>
+        <div class="process-detail__information-section">
+            <h3 class="process-detail__information-title">
+                {% blocktrans with name=process.name %}
+                    Process &lsquo;{{ name }}&rsquo;
+                {% endblocktrans %}
+            </h3>
+            <p>{{ process.description|linebreaksbr }}</p>
+        </div>
 
+        <div class="process-detail__information-section">
+            <h3 class="process-detail__information-title">
+                {% blocktrans with name=process.department.name %}
+                    Department &lsquo;{{ name }}&rsquo;
+                {% endblocktrans %}
+            </h3>
+            <p>{{ process.department.contact_details|linebreaksbr }}</p>
+        </div>
+
+    </section>
 
     <!-- Relations with other processes -->
-    <h1>Relations with other processes</h1>
-    <h2>Initiated by </h2>
-    {% for initiating_process in process.initiating_processes.all %}
-        <a href="{% url 'processes:process-detail' pk=initiating_process.pk %}">{{ initiating_process.name }}</a>
-    {% empty %}
-        <p>None</p>
-    {% endfor %}
+    <section class="process-detail__process-relations">
+        <h3 class="process-detail__section-title">
+            {% trans "Relations with other processes" %}
+        </h3>
 
-    <h2> Initiates </h2>
-    {% for initiated_process in process.initiates.all %}
-        <a href="{% url 'processes:process-detail' pk=initiated_process.pk %}">{{ initiated_process.name }}</a>
-    {% empty %}
-        <p>None</p>
-    {% endfor %}
+        <div class="flex-container process-relation">
 
+            <div class="flex-column flex-column--center">
+                <h4>Initiated by </h4>
+                <div class="process-relation__column">
+                    {% for initiating_process in process.initiating_processes.all %}
+                        <a href="{% url 'processes:process-detail' pk=initiating_process.pk %}" class="button button--application-link">{{ initiating_process.name }}</a>
+                    {% empty %}
+                        <p>{% trans "No initiating processes" %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            <div class="flex-column flex-column--center process-relation__column process-relation__column--center">
+                <div class="process-relation__item process-relation__item--center">
+                    {{ process }}
+                </div>
+            </div>
+
+            <div class="flex-column flex-column--center">
+                <h4> Initiates </h4>
+                <div class="process-relation__column">
+                    {% for initiated_process in process.initiates.all %}
+                        <a href="{% url 'processes:process-detail' pk=initiated_process.pk %}" class="button button--application-link">{{ initiated_process.name }}</a>
+                    {% empty %}
+                        <p>{% trans "Initiates no other processes" %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <!-- Applications -->
-    <h1>Applications</h1>
-    {% regroup object.applications_with_layers by layer as layer_list %}
-    {% for layer, apps in layer_list %}
-        <li>{{ layer }}</li>
-        <ul>
-            {% for app in apps %}
-            <li> {{ app.application }}</li>
-            {% endfor %}
-        </ul>
-    {% empty %}
-        <p>No applications are configured for this process</p>
-    {% endfor %}
+    <section class="process-app section process-detail__related-apps">
+        <h3 class="process-detail__section-title">{% trans "Applications" %}</h3>
 
+        {% regroup object.applications_with_layers by layer as layer_list %}
+        {% for layer, apps in layer_list %}
+            <div class="process-app__row flex-container">
+                <div class="flex-column flex-column--center flex-column--small">
+                    {{ layer }}
+                </div>
+                <div class="flex-column flex-column--large flex-container flex-container--even">
+                    {% for app in apps %}
+                    <a href="{% url 'applications:application-detail' pk=app.application.pk %}" class="item-link">
+                        {{ app.application }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <span>No applications are configured for this process</span>
+        {% endfor %}
 
+    </section>
+
+</article>
 {% endblock %}
