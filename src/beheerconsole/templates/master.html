@@ -29,15 +29,15 @@
             <!-- START container for centering -->
             <div class="container">
 
-                {% block breadcrumbs %}
+                <div class="card shadow p-small content yellow-bar">
+                    {% block breadcrumbs %}
                     <ol class="breadcrumbs">
                         <li class="breadcrumbs__item"><a href="{% url 'index' %}">Home</a></li>
                         {% block crumbs %}
                         {% endblock %}
                     </ol>
-                {% endblock %}
+                    {% endblock %}
 
-                <div class="card shadow content p-small">
                     {% block content %}
                         Override <code>{% verbatim %}{% block content %}{% endverbatim %}</code>
                         to get some actual content.
