@@ -27,12 +27,13 @@
 
         <section class="list-view__results">
             {% for process in object_list %}
-            <div class="list-item card">
-                <h4>
-                    <a href="{% url 'processes:process-detail' pk=process.pk %}" >{{ process }}</a>
-                </h4>
-                <span>Department: {{ process.department }}</span>
-            </div>
+
+                {% blocktrans with dep=process.department asvar card_details trimmed %}
+                    Department: {{ dep }}
+                {% endblocktrans %}
+
+                {% include "includes/list_card.html" with image=None url_name='processes:process-detail' obj=process card_title=process.name card_details=card_details %}
+
             {% endfor %}
         </section>
 

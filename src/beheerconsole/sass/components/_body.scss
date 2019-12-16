@@ -1,8 +1,10 @@
 @import "../lib/typography";
+@import "../lib/colors";
 
 body {
   @include body;
   font-size: 1rem;
+  color: $font-color;
 
   background-color: #F2F2F2;
   margin: 0;

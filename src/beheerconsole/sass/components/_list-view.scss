@@ -10,16 +10,14 @@
   align-items: flex-start;
 
   & &__results {
-    width: 50%;
+    width: calc(70% - 2.5em);
   }
 
   & &__filters {
     background-color: $filter-background-color;
     padding: 0 1em 1em 1em;
     border-radius: 5px;
-
-    min-width: 150px;
-    width: 30%;
+    width: calc(30% - 2.5em);
 
     ul {
       padding-inline-start: 0;

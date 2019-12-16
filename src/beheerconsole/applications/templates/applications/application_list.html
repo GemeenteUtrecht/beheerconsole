@@ -32,19 +32,13 @@ contact details for the vendor and utility URLs.
 
         <section class="list-view__results">
             {% for application in object_list %}
-                <div class="list-item card">
 
-                    {% if application.logo %}
-                        <img class="list-item__img" src="{{ application.logo.url }}">
-                    {% endif %}
+                {% blocktrans with vendor=application.vendor asvar card_details trimmed %}
+                    {{ vendor }}
+                {% endblocktrans %}
 
-                    <div class="list-item__desc">
-                        <a href="{% url 'applications:application-detail' pk=application.pk %}" >
-                            {{ application }}
-                        </a>
-                        <p>{{ application.vendor }}</p>
-                    </div>
-                </div>
+                {% include "includes/list_card.html" with image=application.logo.url url_name='applications:application-detail' obj=application card_title=application.name card_details=card_details %}
+
             {% endfor %}
         </section>
 
