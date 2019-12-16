@@ -2,8 +2,13 @@
 {% load static i18n %}
 
 {% block crumbs %}
-    <li class="breadcrumbs__item"><a href="{% url 'processes:process-list' %}">Processes</a></li>
+    <li class="breadcrumbs__item">
+        <a href="{% url 'processes:process-list' %}">
+            {% trans "Processes" %}
+        </a>
+    </li>
 {% endblock %}
+
 
 {% block content-header-subtitle %}{% trans "Deployed processes in the organization" %}{% endblock %}
 {% block content-header-title %}{% trans "Processes" %}{% endblock %}
@@ -32,13 +37,7 @@
         </section>
 
         <aside class="list-view__filters">
-            <h4>Filter</h4>
-
-            <form action="" method="get">
-                {{ filter.form.as_p }}
-                <input type="submit" class="button"/>
-            </form>
-
+            {% include "includes/filters.html" %}
         </aside>
 
     </article>
