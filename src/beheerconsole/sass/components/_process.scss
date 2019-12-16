@@ -8,12 +8,18 @@
 
   &-app__row {
     padding: 1em;
+    align-items: center;
+    border-bottom: dashed 1px $border-color;
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
   .process-relation {
      &__column {
         display: flex;
-       flex-direction: column;
+        flex-direction: column;
      }
 
     &__column--center {

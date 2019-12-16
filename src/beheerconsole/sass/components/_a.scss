@@ -1,7 +1,9 @@
+@import "../lib/colors";
+
 a {
-  color: rgb(244, 67, 54);
+  color: $theme-primary-color;
 }
 
 a:visited {
-  color: rgb(244, 67, 54);
+  color: $theme-primary-color;
 }

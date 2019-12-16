@@ -18,4 +18,10 @@
     float: right;
   }
 
+  &#{&}--application-link {
+    display: inline;
+    background: $theme-button-color;
+    color: $font-color;
+    text-transform: none;
+  }
 }
