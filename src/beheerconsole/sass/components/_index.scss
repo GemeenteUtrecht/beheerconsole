@@ -34,9 +34,11 @@
   &__item+&__item {
     margin-left: 2em;
   }
+}
 
-  &__admin {
-    padding: 0 1em;
-    text-align: right;
-  }
+.index-admin {
+  padding: 2em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

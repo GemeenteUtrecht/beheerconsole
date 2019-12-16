@@ -9,9 +9,9 @@
 
 {% block content %}
 <article class="p-small">
+    <h2 class="header">{{ application.name }}</h2>
     <section class="flex-container section">
         <div class="flex-column flex-column--large">
-            <h2 class="header">{{ application.name }}</h2>
             <div class="application-desc">
             {% if application.logo %}
                 <img class="application-desc__img" src="{{ application.logo.url }}">
