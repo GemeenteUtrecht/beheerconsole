@@ -38,6 +38,22 @@
                     </ol>
                     {% endblock %}
 
+                    {% spaceless %}
+                    {% block content-header %}
+                        <header class="content-header">
+                            <h2 class="content-header__subtitle">
+                                {% block content-header-subtitle %}{% endblock content-header-subtitle %}
+                            </h2>
+                            <h1 class="content-header__title">
+                                {% block content-header-title %}{% endblock %}
+                            </h1>
+                            <p class="content-header__explanation">
+                                {% block content-header-explanation %}{% endblock %}
+                            </p>
+                        </header>
+                    {% endblock content-header %}
+                    {% endspaceless %}
+
                     {% block content %}
                         Override <code>{% verbatim %}{% block content %}{% endverbatim %}</code>
                         to get some actual content.

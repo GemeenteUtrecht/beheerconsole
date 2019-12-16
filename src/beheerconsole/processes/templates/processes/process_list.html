@@ -1,22 +1,24 @@
 {% extends "master.html" %}
-{% load static %}
+{% load static i18n %}
 
 {% block crumbs %}
     <li class="breadcrumbs__item"><a href="{% url 'processes:process-list' %}">Processes</a></li>
 {% endblock %}
 
+{% block content-header-subtitle %}{% trans "Deployed processes in the organization" %}{% endblock %}
+{% block content-header-title %}{% trans "Processes" %}{% endblock %}
+{% block content-header-explanation %}
+{% blocktrans trimmed %}
+    On this page you see a list of processes as they are handled
+    within the organization. You can use the filters on the right
+    hand side to filter by the department owning the process.
+{% endblocktrans %}
+{% endblock %}
+
+
 {% block content %}
 
-    <article class="p-small">
-        <header class="header">
-            <h1>Processes</h1>
-        </header>
-
-        <p class="p-left p-small">
-            Here is the list of all available processes and correspondent departments <br>
-            You can filter the processes based on the department in charge. <br>
-            For further additional information about each process please click on the process name.
-        </p>
+    <article class="list-view">
         <section class="flex-container">
 
             <div class="flex-column p-left">
