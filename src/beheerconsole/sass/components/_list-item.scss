@@ -1,0 +1,23 @@
+.list-item {
+  padding: 1em 1em 1.5em 2em;
+  margin-bottom: 1em;
+  max-width: 20em;
+
+  a {
+    font-size: 1.25em;
+  }
+
+  &__img {
+    width: 100px;
+  }
+
+  &__desc {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__img + &__desc {
+    margin-left: 1em;
+  }
+
+}

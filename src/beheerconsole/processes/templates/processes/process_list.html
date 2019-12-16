@@ -7,16 +7,21 @@
 
 {% block content %}
 
-    <article>
+    <article class="p-small">
         <header class="header">
             <h1>Processes</h1>
         </header>
 
-
+        <p class="p-left p-small">
+            Here is the list of all available processes and correspondent departments <br>
+            You can filter the processes based on the department in charge. <br>
+            For further additional information about each process please click on the process name.
+        </p>
         <section class="flex-container">
-            <div class="flex-column">
+
+            <div class="flex-column p-left">
                 {% for process in object_list %}
-                <div class="list-item">
+                <div class="list-item card">
                     <h4><a href="{% url 'processes:process-detail' pk=process.pk %}" >{{ process }}</a></h4>
                     <span>Department: {{ process.department }}</span>
                 </div>
