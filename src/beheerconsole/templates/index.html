@@ -20,10 +20,13 @@
 {% block content %}
 <article class="index">
 
-  <section class="index__list flex-container">
-        <a class="index__item" href="{% url 'processes:process-list' %}">Processes</a>
-        <a class="index__item" href="{% url 'applications:application-list' %}">Applications</a>
-  </section>
+    <a class="index__item" href="{% url 'processes:process-list' %}">
+        {% trans "Processes" %}
+    </a>
+    <span class="index__item-separator"></span>
+    <a class="index__item" href="{% url 'applications:application-list' %}">
+        {% trans "Applications" %}
+    </a>
 
 </article>
 
