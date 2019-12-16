@@ -19,26 +19,27 @@
 {% block content %}
 
     <article class="list-view">
-        <section class="flex-container">
 
-            <div class="flex-column p-left">
-                {% for process in object_list %}
-                <div class="list-item card">
-                    <h4><a href="{% url 'processes:process-detail' pk=process.pk %}" >{{ process }}</a></h4>
-                    <span>Department: {{ process.department }}</span>
-                </div>
-                {% endfor %}
+        <section class="list-view__results">
+            {% for process in object_list %}
+            <div class="list-item card">
+                <h4>
+                    <a href="{% url 'processes:process-detail' pk=process.pk %}" >{{ process }}</a>
+                </h4>
+                <span>Department: {{ process.department }}</span>
             </div>
-
-            <div class="filter">
-                <h4>Filter</h4>
-                <form action="" method="get">
-                    {{ filter.form.as_p }}
-                    <input type="submit" class="button"/>
-                </form>
-            </div>
-
+            {% endfor %}
         </section>
+
+        <aside class="list-view__filters">
+            <h4>Filter</h4>
+
+            <form action="" method="get">
+                {{ filter.form.as_p }}
+                <input type="submit" class="button"/>
+            </form>
+
+        </aside>
 
     </article>
 
