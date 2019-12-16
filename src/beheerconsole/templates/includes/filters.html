@@ -4,5 +4,7 @@
 
 <form action="" method="get">
     {{ filter.form.as_p }}
-    <input type="submit" class="button"/>
+    <button type="submit" class="button button--submit">
+        {{ btn_text|default:_("Submit")}}
+    </button>
 </form>

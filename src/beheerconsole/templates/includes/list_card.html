@@ -7,7 +7,7 @@
         <a href="{% url url_name pk=obj.pk %}" class="list-card__title">
             {{ card_title }}
         </a>
-        <p class="list-card__details">{{ card_details }}</p>
+        <p class="list-card__details">{{ card_details|safe }}</p>
     </div>
 
 </div>
