@@ -7,6 +7,8 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+
         <link href="{% static 'css/font-awesome.min.css' %}" media="screen" rel="stylesheet" />
         <link href="{% static 'css/screen.css' %}" media="screen" rel="stylesheet" type="text/css" />
         {% block extra_css %}{% endblock %}
@@ -29,7 +31,7 @@
             <!-- START container for centering -->
             <div class="container">
 
-                <div class="card shadow p-small content yellow-bar">
+                <div class="card shadow p-small content">
                     {% block breadcrumbs %}
                     <ol class="breadcrumbs">
                         <li class="breadcrumbs__item"><a href="{% url 'index' %}">Home</a></li>

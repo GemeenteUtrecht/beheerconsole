@@ -1,6 +1,10 @@
+@import "../lib/typography";
+
 body {
+  @include body;
+  font-size: 1rem;
+
   background-color: #F2F2F2;
-  font-family: "Fira Sans", -apple-system, system-ui, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   margin: 0;
 
   &, & * {
