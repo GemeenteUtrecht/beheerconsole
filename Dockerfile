@@ -59,6 +59,7 @@ COPY --from=backend-build /usr/local/lib/python3.8 /usr/local/lib/python3.8
 COPY --from=backend-build /usr/local/bin/uwsgi /usr/local/bin/uwsgi
 
 # copy build statics
+COPY --from=frontend-build /app/node_modules/font-awesome /app/node_modules/font-awesome
 COPY --from=frontend-build /app/src/beheerconsole/static /app/src/beheerconsole/static
 
 # copy source code
