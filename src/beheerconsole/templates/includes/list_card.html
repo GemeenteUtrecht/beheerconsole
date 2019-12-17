@@ -1,7 +1,7 @@
 {% load i18n %}
 
 <div class="list-card {% if image %}list-card--with-image{% endif %}">
-    {% if image %} <img src="{{ image.url }}" class="list-card__image"> {% endif %}
+    {% if image %} <img src="{{ image }}" class="list-card__image"> {% endif %}
 
     <div class="list-card__text">
         <a href="{% url url_name pk=obj.pk %}" class="list-card__title">

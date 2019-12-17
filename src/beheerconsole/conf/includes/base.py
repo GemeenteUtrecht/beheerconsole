@@ -166,6 +166,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = "/media/"
 
+DEFAULT_LOGO = f'{STATIC_URL}img/logo-placeholder.png'
+
 #
 # Sending EMAIL
 #
