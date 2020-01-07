@@ -52,11 +52,16 @@ class Application(models.Model):
 
 
 class Layer(models.Model):
-    tier = models.PositiveSmallIntegerField(_("tier"), help_text=_("The tier number of the layer"))
+    tier = models.PositiveSmallIntegerField(
+        _("tier"),
+        help_text=_("The tier number of the layer"),
+        unique=True,
+    )
+    name = models.CharField(_("name"), max_length=100)
     description = models.TextField(
         _("description"), blank=True,
-        help_text="a description of the layer - what is it aimed for... "
+        help_text=_("Describe the meaning of this Common Ground layer")
     )
 
     def __str__(self):
-        return f"Layer {self.tier}"
+        return self.name
