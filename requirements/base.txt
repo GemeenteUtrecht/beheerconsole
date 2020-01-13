@@ -4,20 +4,37 @@
 #
 #    pip-compile --no-index requirements/base.in
 #
+amqp==2.5.2               # via kombu
 asgiref==3.2.3            # via django
+billiard==3.6.1.0         # via celery
+celery==4.4.0             # via django-camunda
+certifi==2019.11.28       # via requests
+chardet==3.0.4            # via requests
 django-appconf==1.0.3     # via django-axes
 django-axes==5.0.20
+django-camunda==0.3.0
 django-filter==2.2.0
 django-ipware==2.1.0      # via django-axes
 django-redis==4.11.0
+django-solo==1.1.3        # via django-camunda
 django==3.0.1
+idna==2.8                 # via requests
+importlib-metadata==1.4.0  # via kombu
+inflection==0.3.1         # via django-camunda
+kombu==4.6.7              # via celery
+more-itertools==8.1.0     # via zipp
 pillow==6.2.1
 psycopg2==2.8.4
+python-dateutil==2.8.1    # via django-camunda
 python-decouple==3.3
 python-dotenv==0.10.3
 pytz==2019.3
 raven==6.10.0
 redis==3.3.11             # via django-redis
-six==1.13.0               # via django-appconf
+requests==2.22.0          # via django-camunda
+six==1.13.0               # via django-appconf, python-dateutil
 sqlparse==0.3.0           # via django
+urllib3==1.25.7           # via requests
 uwsgi==2.0.18
+vine==1.3.0               # via amqp, celery
+zipp==0.6.0               # via importlib-metadata

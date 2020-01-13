@@ -12,3 +12,4 @@ Django
 django-axes
 django-redis
 django-filter
+django-camunda
