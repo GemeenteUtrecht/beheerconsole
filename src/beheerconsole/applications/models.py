@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -49,6 +50,12 @@ class Application(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def logo_or_placeholder(self):
+        if self.logo:
+            return self.logo.url
+        return settings.DEFAULT_LOGO
 
 
 class Layer(models.Model):
