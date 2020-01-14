@@ -91,5 +91,4 @@ class Process(models.Model):
     @property
     def applications_with_layers(self):
         apps = [{"layer": app.layer, "application": app} for app in self.applications.order_by("-layer")]
-        print(apps)
         return apps
