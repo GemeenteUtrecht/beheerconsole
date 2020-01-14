@@ -40,8 +40,8 @@ class Process(models.Model):
     information.
     """
 
-    name = models.CharField(
-        _("name"), max_length=255, help_text=_("Name of the process/process chain.")
+    camunda_id = models.CharField(
+        _("camunda_id"), max_length=255, help_text=_("process-definition id in Camunda")
     )
     description = models.TextField(
         _("description"),
@@ -92,3 +92,15 @@ class Process(models.Model):
     def applications_with_layers(self):
         apps = [{"layer": app.layer, "application": app} for app in self.applications.order_by("-layer")]
         return apps
+
+    @property
+    def name(self):
+        if self.camunda_id:
+            return self.camunda_id.split(':')[0]
+        return ''
+
+    @property
+    def version(self):
+        if self.camunda_id:
+            return self.camunda_id.split(':')[1]
+        return ''

@@ -13,13 +13,13 @@ class DepartmentAdmin(admin.ModelAdmin):
 @admin.register(Process)
 class ProcessAdmin(admin.ModelAdmin):
     list_display = (
-        "name",
+        "camunda_id",
         "department",
         "description",
     )
     list_filter = ("department",)
-    ordering = ("department", "name")
-    search_fields = ("name",)
+    ordering = ("department", "camunda_id")
+    search_fields = ("camunda_id",)
     filter_horizontal = (
         "other_departments",
         "initiating_processes",
