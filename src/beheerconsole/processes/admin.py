@@ -1,5 +1,8 @@
+from django import forms
 from django.contrib import admin
+from django.contrib.admin import widgets
 
+from ..camunda.utils import get_processes
 from .models import Department, Process
 
 
@@ -25,3 +28,25 @@ class ProcessAdmin(admin.ModelAdmin):
         "initiating_processes",
         "applications",
     )
+
+    def formfield_for_dbfield(self, db_field, request, **kwargs):
+        if db_field.name == 'camunda_id':
+            processes = get_processes()
+
+            choices = [
+                (
+                    process["id"],
+                    f"{process['name']} - {process['version']}",
+                )
+                for process in processes
+            ]
+
+            return forms.ChoiceField(
+                label=db_field.verbose_name.capitalize(),
+                widget=widgets.AdminRadioSelect(),
+                choices=choices,
+                required=False,
+                help_text=db_field.help_text,
+            )
+
+        return super().formfield_for_dbfield(db_field, request, **kwargs)
