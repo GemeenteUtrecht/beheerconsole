@@ -15,6 +15,10 @@ The applications app relates back to processes.
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from django_camunda.client import get_client_class
+
+from ..camunda.models import CamundaBasicAuthConfig
+
 
 class Department(models.Model):
     name = models.CharField(_("name"), max_length=255)
@@ -104,3 +108,10 @@ class Process(models.Model):
         if self.camunda_id:
             return self.camunda_id.split(':')[1]
         return ''
+
+    def xml(self):
+        if self.camunda_id:
+            client = get_client_class()(config=CamundaBasicAuthConfig.get_solo())
+            response = client.request(f"process-definition/{self.camunda_id}/xml")
+            return response["bpmn20_xml"]
+        return ""
