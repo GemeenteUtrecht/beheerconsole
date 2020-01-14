@@ -1,3 +1,5 @@
+from itertools import groupby
+
 from django import forms
 from django.contrib import admin
 from django.contrib.admin import widgets
@@ -32,13 +34,20 @@ class ProcessAdmin(admin.ModelAdmin):
     def formfield_for_dbfield(self, db_field, request, **kwargs):
         if db_field.name == 'camunda_id':
             processes = get_processes()
+            processes_by_name = groupby(processes, lambda x: x["name"])
 
             choices = [
                 (
-                    process["id"],
-                    f"{process['name']} - {process['version']}",
+                    f"Process: {name}",
+                    [
+                        (
+                            process["id"],
+                            f"versie {process['version']}",
+                        )
+                        for process in processes
+                    ],
                 )
-                for process in processes
+                for name, processes in processes_by_name
             ]
 
             return forms.ChoiceField(
