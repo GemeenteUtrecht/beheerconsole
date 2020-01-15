@@ -113,7 +113,6 @@
     <!-- BPMN -->
     <section class="process-app process-detail__related-apps">
         <h3 class="process-detail__section-title">{% trans "BPMN schema" %}</h3>
-        <span id="bpmn-xml">{{ object.xml }}</span>
         <div id="bpmn-container">
         </div>
     </section>
@@ -124,18 +123,24 @@
 {% block scripts %}
     <script src="https://unpkg.com/bpmn-js@6.1.2/dist/bpmn-navigated-viewer.development.js"></script>
     <script>
-        var xml = document.getElementById('bpmn-xml').innerText;
-        var viewer = new BpmnJS({
+        const viewer = new BpmnJS({
          container: '#bpmn-container'
         });
-        console.log(xml);
+        const xhr = new XMLHttpRequest();
 
-        viewer.importXML(xml, function(err) {
-            if (err) {
-                console.log('error rendering', err);
-            } else {
-                console.log('rendered');
-            }
-        });
+        function handleResponse() {
+            const xml = xhr.responseText;
+            viewer.importXML(xml, function(err) {
+                if (err) {
+                    console.log('error rendering', err);
+                } else {
+                    console.log('rendered');
+                }
+            });
+        }
+
+        xhr.addEventListener("load", handleResponse);
+        xhr.open("GET", "bpmn");
+        xhr.send();
     </script>
 {% endblock %}
