@@ -119,28 +119,3 @@
 
 </article>
 {% endblock %}
-
-{% block scripts %}
-    <script src="https://unpkg.com/bpmn-js@6.1.2/dist/bpmn-navigated-viewer.development.js"></script>
-    <script>
-        const viewer = new BpmnJS({
-         container: '#bpmn-container'
-        });
-        const xhr = new XMLHttpRequest();
-
-        function handleResponse() {
-            const xml = xhr.responseText;
-            viewer.importXML(xml, function(err) {
-                if (err) {
-                    console.log('error rendering', err);
-                } else {
-                    console.log('rendered');
-                }
-            });
-        }
-
-        xhr.addEventListener("load", handleResponse);
-        xhr.open("GET", "bpmn");
-        xhr.send();
-    </script>
-{% endblock %}
