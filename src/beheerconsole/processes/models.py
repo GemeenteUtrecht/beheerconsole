@@ -15,6 +15,10 @@ The applications app relates back to processes.
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from django_camunda.client import get_client_class
+
+from ..camunda.models import CamundaBasicAuthConfig
+
 
 class Department(models.Model):
     name = models.CharField(_("name"), max_length=255)
@@ -41,7 +45,13 @@ class Process(models.Model):
     """
 
     name = models.CharField(
-        _("name"), max_length=255, help_text=_("Name of the process/process chain.")
+        _("name"), max_length=255, help_text=_("Human-friendly name."),
+    )
+    camunda_id = models.CharField(
+        _("Camunda process"),
+        max_length=255,
+        help_text=_("Process definition ID in Camunda."),
+        blank=True,
     )
     description = models.TextField(
         _("description"),
@@ -90,6 +100,27 @@ class Process(models.Model):
 
     @property
     def applications_with_layers(self):
-        apps = [{"layer": app.layer, "application": app} for app in self.applications.order_by("-layer")]
-        print(apps)
+        apps = [
+            {"layer": app.layer, "application": app}
+            for app in self.applications.order_by("-layer")
+        ]
         return apps
+
+    @property
+    def camunda_key(self) -> str:
+        if not self.camunda_id:
+            return ""
+        return self.camunda_id.split(":")[0]
+
+    @property
+    def version(self) -> str:
+        if not self.camunda_id:
+            return ""
+        return self.camunda_id.split(":")[1]
+
+    def xml(self):
+        if self.camunda_id:
+            client = get_client_class()(config=CamundaBasicAuthConfig.get_solo())
+            response = client.request(f"process-definition/{self.camunda_id}/xml")
+            return response["bpmn20_xml"]
+        return ""

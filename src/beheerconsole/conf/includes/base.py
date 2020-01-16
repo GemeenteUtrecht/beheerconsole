@@ -91,9 +91,12 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     # External applications.
     "axes",
+    "django_camunda",
+    "solo",
     # Project applications.
     "beheerconsole.accounts",
     "beheerconsole.applications",
+    "beheerconsole.camunda",
     "beheerconsole.processes",
     "beheerconsole.utils",
 ]
