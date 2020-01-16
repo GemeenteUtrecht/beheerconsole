@@ -34,7 +34,7 @@ COPY ./*.js /app/
 COPY ./build /app/build/
 
 # install WITH dev tooling
-RUN npm install
+RUN npm ci
 
 # copy source code
 COPY ./src /app/src
