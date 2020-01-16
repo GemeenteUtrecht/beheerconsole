@@ -18,6 +18,7 @@ class DepartmentAdmin(admin.ModelAdmin):
 @admin.register(Process)
 class ProcessAdmin(admin.ModelAdmin):
     list_display = (
+        "name",
         "camunda_id",
         "department",
         "description",

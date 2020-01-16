@@ -43,7 +43,11 @@ class Process(models.Model):
     Contains relations to which applications are involved and generally useful
     information.
     """
-
+    name = models.CharField(
+        _("name"),
+        max_length=255,
+        help_text=_("Human-friendly name."),
+    )
     camunda_id = models.CharField(
         _("camunda_id"), max_length=255, help_text=_("process-definition id in Camunda")
     )
@@ -96,12 +100,6 @@ class Process(models.Model):
     def applications_with_layers(self):
         apps = [{"layer": app.layer, "application": app} for app in self.applications.order_by("-layer")]
         return apps
-
-    @property
-    def name(self):
-        if self.camunda_id:
-            return self.camunda_id.split(':')[0]
-        return ''
 
     @property
     def version(self):
