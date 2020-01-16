@@ -113,8 +113,12 @@
     <!-- BPMN -->
     <section class="process-app process-detail__related-apps">
         <h3 class="process-detail__section-title">{% trans "BPMN schema" %}</h3>
-        <div id="bpmn-container">
-        </div>
+        {% if process.camunda_id %}
+            {% blocktrans with key=process.camunda_key version=process.version trimmed %}
+                Camunda process: <code>{{ key }} (version {{ version }})</code>
+            {% endblocktrans %}
+        {% endif %}
+        <div id="bpmn-container" data-url="{% url 'processes:process-bpmn' pk=process.pk %}"></div>
     </section>
 
 </article>

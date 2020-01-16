@@ -43,10 +43,9 @@ class Process(models.Model):
     Contains relations to which applications are involved and generally useful
     information.
     """
+
     name = models.CharField(
-        _("name"),
-        max_length=255,
-        help_text=_("Human-friendly name."),
+        _("name"), max_length=255, help_text=_("Human-friendly name."),
     )
     camunda_id = models.CharField(
         _("Camunda process"),
@@ -101,14 +100,23 @@ class Process(models.Model):
 
     @property
     def applications_with_layers(self):
-        apps = [{"layer": app.layer, "application": app} for app in self.applications.order_by("-layer")]
+        apps = [
+            {"layer": app.layer, "application": app}
+            for app in self.applications.order_by("-layer")
+        ]
         return apps
 
     @property
-    def version(self):
-        if self.camunda_id:
-            return self.camunda_id.split(':')[1]
-        return ''
+    def camunda_key(self) -> str:
+        if not self.camunda_id:
+            return ""
+        return self.camunda_id.split(":")[0]
+
+    @property
+    def version(self) -> str:
+        if not self.camunda_id:
+            return ""
+        return self.camunda_id.split(":")[1]
 
     def xml(self):
         if self.camunda_id:
