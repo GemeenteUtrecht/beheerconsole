@@ -34,7 +34,7 @@ contact details for the vendor and utility URLs.
             {% for application in object_list %}
 
                 {% blocktrans with vendor=application.vendor asvar card_details trimmed %}
-                    <i class="fa fa-bug"></i> {{ vendor }}
+                    <i class="fa fa-bookmark"></i> {{ vendor }}
                 {% endblocktrans %}
 
                 {% include "includes/list_card.html" with image=application.logo_or_placeholder url_name='applications:application-detail' obj=application card_title=application.name card_details=card_details %}
