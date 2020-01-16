@@ -8,8 +8,7 @@ from .models import Application, Layer
 
 class ApplicationFilter(FilterSet):
     layer = django_filters.ModelMultipleChoiceFilter(
-        queryset=Layer.objects.all(),
-        widget=forms.CheckboxSelectMultiple
+        queryset=Layer.objects.all(), widget=forms.CheckboxSelectMultiple
     )
 
     class Meta:

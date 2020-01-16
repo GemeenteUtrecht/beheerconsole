@@ -13,7 +13,7 @@ def populate_name(apps, _):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('processes', '0004_process_name'),
+        ("processes", "0004_process_name"),
     ]
 
     operations = [

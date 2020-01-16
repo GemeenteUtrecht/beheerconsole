@@ -8,8 +8,7 @@ from .models import Department, Process
 
 class ProcessFilter(FilterSet):
     department = django_filters.ModelMultipleChoiceFilter(
-        queryset=Department.objects.all(),
-        widget=forms.CheckboxSelectMultiple
+        queryset=Department.objects.all(), widget=forms.CheckboxSelectMultiple
     )
 
     class Meta:

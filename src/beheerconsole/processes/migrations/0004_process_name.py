@@ -6,14 +6,19 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('processes', '0003_auto_20200114_1316'),
+        ("processes", "0003_auto_20200114_1316"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='process',
-            name='name',
-            field=models.CharField(default='', help_text='Human-friendly name.', max_length=255, verbose_name='name'),
+            model_name="process",
+            name="name",
+            field=models.CharField(
+                default="",
+                help_text="Human-friendly name.",
+                max_length=255,
+                verbose_name="name",
+            ),
             preserve_default=False,
         ),
     ]
