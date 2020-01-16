@@ -6,3 +6,5 @@ docker-compose*
 .vscode
 env/
 local.py
+src/beheerconsole/static/css
+src/beheerconsole/static/js
