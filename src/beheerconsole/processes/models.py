@@ -49,7 +49,10 @@ class Process(models.Model):
         help_text=_("Human-friendly name."),
     )
     camunda_id = models.CharField(
-        _("camunda_id"), max_length=255, help_text=_("process-definition id in Camunda")
+        _("Camunda process"),
+        max_length=255,
+        help_text=_("Process definition ID in Camunda."),
+        blank=True,
     )
     description = models.TextField(
         _("description"),

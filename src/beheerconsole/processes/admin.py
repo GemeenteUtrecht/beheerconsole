@@ -3,6 +3,8 @@ from itertools import groupby
 from django import forms
 from django.contrib import admin
 from django.contrib.admin import widgets
+from django.utils.html import format_html
+from django.utils.translation import ugettext_lazy as _
 
 from ..camunda.utils import get_processes
 from .models import Department, Process
@@ -35,20 +37,21 @@ class ProcessAdmin(admin.ModelAdmin):
     def formfield_for_dbfield(self, db_field, request, **kwargs):
         if db_field.name == 'camunda_id':
             processes = get_processes()
-            processes_by_name = groupby(processes, lambda x: x["name"])
+            # Camunda versions by key - not name. The same key can have different names
+            processes_by_name = groupby(processes, lambda x: x["key"])
 
             choices = [
                 (
-                    f"Process: {name}",
+                    format_html(_("Process: <code>{key}</code>"), key=key),
                     [
                         (
                             process["id"],
-                            f"versie {process['version']}",
+                            _("{name} (version {version})").format(**process),
                         )
                         for process in processes
                     ],
                 )
-                for name, processes in processes_by_name
+                for key, processes in processes_by_name
             ]
 
             return forms.ChoiceField(
