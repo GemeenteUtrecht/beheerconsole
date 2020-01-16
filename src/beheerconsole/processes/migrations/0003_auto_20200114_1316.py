@@ -6,13 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('processes', '0002_auto_20200114_1314'),
+        ("processes", "0002_auto_20200114_1314"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='process',
-            name='camunda_id',
-            field=models.CharField(help_text='process-definition id in Camunda', max_length=255, verbose_name='camunda_id'),
+            model_name="process",
+            name="camunda_id",
+            field=models.CharField(
+                help_text="process-definition id in Camunda",
+                max_length=255,
+                verbose_name="camunda_id",
+            ),
         ),
     ]

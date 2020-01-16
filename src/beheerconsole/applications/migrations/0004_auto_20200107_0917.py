@@ -6,24 +6,32 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('applications', '0003_application_logo'),
+        ("applications", "0003_application_logo"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='layer',
-            name='name',
-            field=models.CharField(default='', max_length=100, verbose_name='name'),
+            model_name="layer",
+            name="name",
+            field=models.CharField(default="", max_length=100, verbose_name="name"),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='layer',
-            name='description',
-            field=models.TextField(blank=True, help_text='Describe the meaning of this Common Ground layer', verbose_name='description'),
+            model_name="layer",
+            name="description",
+            field=models.TextField(
+                blank=True,
+                help_text="Describe the meaning of this Common Ground layer",
+                verbose_name="description",
+            ),
         ),
         migrations.AlterField(
-            model_name='layer',
-            name='tier',
-            field=models.PositiveSmallIntegerField(help_text='The tier number of the layer', unique=True, verbose_name='tier'),
+            model_name="layer",
+            name="tier",
+            field=models.PositiveSmallIntegerField(
+                help_text="The tier number of the layer",
+                unique=True,
+                verbose_name="tier",
+            ),
         ),
     ]

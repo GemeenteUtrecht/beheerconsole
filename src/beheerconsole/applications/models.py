@@ -33,12 +33,15 @@ class Application(models.Model):
         help_text=_("URL to the code repository, e.g. Github, Gitlab, Bitbucket..."),
     )
     logo = models.ImageField(
-        _("logo"), upload_to='logos/', null=True,
+        _("logo"),
+        upload_to="logos/",
+        null=True,
         help_text=_("Logo image of the application"),
     )
     # relations
     layer = models.ForeignKey(
-        "Layer", on_delete=models.CASCADE,
+        "Layer",
+        on_delete=models.CASCADE,
         related_name="applications",
         verbose_name=_("layer"),
         help_text=_("The layer of the application."),
@@ -60,14 +63,13 @@ class Application(models.Model):
 
 class Layer(models.Model):
     tier = models.PositiveSmallIntegerField(
-        _("tier"),
-        help_text=_("The tier number of the layer"),
-        unique=True,
+        _("tier"), help_text=_("The tier number of the layer"), unique=True,
     )
     name = models.CharField(_("name"), max_length=100)
     description = models.TextField(
-        _("description"), blank=True,
-        help_text=_("Describe the meaning of this Common Ground layer")
+        _("description"),
+        blank=True,
+        help_text=_("Describe the meaning of this Common Ground layer"),
     )
 
     def __str__(self):

@@ -35,7 +35,7 @@ class ProcessAdmin(admin.ModelAdmin):
     )
 
     def formfield_for_dbfield(self, db_field, request, **kwargs):
-        if db_field.name == 'camunda_id':
+        if db_field.name == "camunda_id":
             processes = get_processes()
             # Camunda versions by key - not name. The same key can have different names
             processes_by_name = groupby(processes, lambda x: x["key"])

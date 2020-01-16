@@ -1,0 +1,69 @@
+language: python
+
+python: "3.8"
+
+services:
+  - postgresql
+  - redis-server
+  - docker
+
+addons:
+  postgresql: "10"
+
+env:
+  global:
+  - DJANGO_SETTINGS_MODULE=beheerconsole.conf.dev
+  - SECRET_KEY=dummy
+  - DB_USER=postgres
+  - DB_PASSWORD=
+
+jobs:
+  include:
+    - stage: Tests / Linting
+      name: Django tests
+      cache: pip
+      install:
+        - pip install -r requirements/dev.txt codecov
+        - npm ci
+        - npm run build
+      script:
+        - python src/manage.py collectstatic --noinput --link
+        - coverage run src/manage.py test src
+      after_success:
+        - codecov
+
+    - name: Import ordering
+      install:
+        - pip install isort
+      before_script: skip
+      script: isort --recursive --check-only --diff .
+
+    - name: Code style
+      install:
+        - pip install black
+      before_script: skip
+      script: black --check src
+
+    - name: Test docker image build
+      before_install: skip
+      install: skip
+      before_script: skip
+      script: docker build .
+
+    - stage: Push Docker image(s)
+      if: fork = false
+      before_install: skip
+      install: skip
+      before_script: skip
+      script: echo "noop"
+      after_success: echo "trigger deploy?"
+      deploy:
+        - provider: script
+          script: bin/docker_push.sh latest
+          on:
+            branch: master
+
+        - provider: script
+          script: bin/docker_push.sh $TRAVIS_TAG
+          on:
+            tags: true

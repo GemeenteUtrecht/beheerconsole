@@ -36,8 +36,8 @@ urlpatterns = [
     ),
     # Simply show the master template.
     path(r"", TemplateView.as_view(template_name="index.html"), name="index"),
-    path('processes/', include('beheerconsole.processes.urls')),
-    path('software/', include('beheerconsole.applications.urls')),
+    path("processes/", include("beheerconsole.processes.urls")),
+    path("software/", include("beheerconsole.applications.urls")),
 ]
 
 # NOTE: The staticfiles_urlpatterns also discovers static files (ie. no need to run collectstatic). Both the static
