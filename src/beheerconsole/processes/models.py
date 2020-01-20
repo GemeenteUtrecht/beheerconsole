@@ -18,6 +18,7 @@ from django.utils.translation import ugettext_lazy as _
 from django_camunda.client import get_client_class
 
 from ..camunda.models import CamundaBasicAuthConfig
+from .constants import ProcessStatusChoices, RiskLevels
 
 
 class Department(models.Model):
@@ -89,6 +90,38 @@ class Process(models.Model):
         blank=True,
         related_name="processes",
         help_text=_("Set of applications used to handle this process"),
+    )
+
+    # information for the systematic overview - which is an inventory tracking meta-information
+    # of processes
+    personal_data = models.BooleanField(
+        _("personal data"),
+        default=True,
+        help_text=_("Does personal data end up in the process?"),
+    )
+    process_status = models.CharField(
+        _("process status"),
+        max_length=50,
+        choices=ProcessStatusChoices.choices,
+        default=ProcessStatusChoices.active,
+    )
+    deactivation_date = models.DateField(
+        _("deactivation date"),
+        null=True,
+        blank=True,
+        help_text=_(
+            "Date when this process became deactivated/historical. Leave blank "
+            "for 'in production' processes."
+        ),
+    )
+    zaaktype = models.URLField(
+        _("zaaktype"),
+        max_length=1000,
+        blank=True,
+        help_text=_("Zaaktype in the Catalogi API."),
+    )
+    risk_level = models.CharField(
+        _("risk level"), max_length=50, choices=RiskLevels.choices, blank=True
     )
 
     class Meta:

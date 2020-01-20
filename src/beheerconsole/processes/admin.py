@@ -37,8 +37,18 @@ class ProcessAdmin(admin.ModelAdmin):
         (None, {"fields": ("name", "description", "department", "other_departments",)}),
         (_("Relations"), {"fields": ("initiating_processes", "applications")}),
         (_("Process engine"), {"fields": ("camunda_id",)}),
-        (_("Misc1"), {"fields": ()}),
-        (_("Misc2"), {"fields": ()}),
+        (
+            _("Systematic overview"),
+            {
+                "fields": (
+                    "personal_data",
+                    "process_status",
+                    "deactivation_date",
+                    "risk_level",
+                )
+            },
+        ),
+        (_("Zaakgericht werken"), {"fields": ("zaaktype",)}),
         (_("Misc3"), {"fields": ()}),
     )
 
