@@ -6,6 +6,8 @@ python-dotenv
 python-decouple  # processing of envvar configs
 uwsgi
 pillow
+zgw-consumers
+nlx-url-rewriter
 
 # Framework libraries
 Django
