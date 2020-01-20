@@ -33,6 +33,14 @@ class ProcessAdmin(admin.ModelAdmin):
         "initiating_processes",
         "applications",
     )
+    fieldsets = (
+        (None, {"fields": ("name", "description", "department", "other_departments",)}),
+        (_("Relations"), {"fields": ("initiating_processes", "applications")}),
+        (_("Process engine"), {"fields": ("camunda_id",)}),
+        (_("Misc1"), {"fields": ()}),
+        (_("Misc2"), {"fields": ()}),
+        (_("Misc3"), {"fields": ()}),
+    )
 
     def formfield_for_dbfield(self, db_field, request, **kwargs):
         if db_field.name == "camunda_id":
