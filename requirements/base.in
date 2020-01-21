@@ -15,3 +15,5 @@ django-axes
 django-redis
 django-filter
 django-camunda
+django-sniplates
+

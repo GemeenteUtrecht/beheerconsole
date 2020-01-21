@@ -91,6 +91,7 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     # External applications.
     "axes",
+    "sniplates",
     "django_camunda",
     "solo",
     "nlx_url_rewriter",
