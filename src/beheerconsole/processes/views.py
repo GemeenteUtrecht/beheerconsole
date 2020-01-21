@@ -23,3 +23,7 @@ class ProcessBpmnView(View):
     def get(self, request, pk):
         process = Process.objects.get(pk=pk)
         return HttpResponse(process.xml(), content_type="text/xml")
+
+
+class ProcessSOView(ProcessDetailView):
+    template_name = "processes/process_so.html"

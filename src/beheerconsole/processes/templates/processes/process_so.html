@@ -1,0 +1,53 @@
+{% extends "master.html" %}
+{% load i18n %}
+
+
+{% block crumbs %}
+    <li class="breadcrumbs__item">
+        <a href="{% url 'processes:process-list' %}">
+            {% trans "Processes" %}
+        </a>
+    </li>
+    <li class="breadcrumbs__item">
+        <a href="{% url 'processes:process-detail' pk=process.pk %}">
+            {{ process }}
+        </a>
+    </li>
+    <li class="breadcrumbs__item">
+        <a href="{% url 'processes:process-so' pk=process.pk %}">
+            {% trans "Systematic overview" %}
+        </a>
+    </li>
+{% endblock %}
+
+
+{% block content-header-subtitle %}{% trans "Systematic overview" %}{% endblock %}
+{% block content-header-title %}{{ process.name }}{% endblock %}
+{% block content-header-explanation %}
+    {% blocktrans trimmed %}
+        The systematic overview describes meta-information of processes.
+    {% endblocktrans %}
+{% endblock %}
+
+
+{% block content %}
+<article class="process process-detail">
+
+    <section class="process-detail__information">
+
+        <div class="process-detail__information-section">
+            <h3 class="process-detail__information-title">
+                {% blocktrans with name=process.name %}
+                    Process &lsquo;{{ name }}&rsquo;
+                {% endblocktrans %}
+            </h3>
+            <p>{{ process.description|linebreaksbr }}</p>
+        </div>
+
+        <div class="process-detail__information-section">
+            <h3 class="process-detail__information-title">{% trans "Status" %}</h3>
+        </div>
+    </section>
+
+</article>
+{% endblock %}

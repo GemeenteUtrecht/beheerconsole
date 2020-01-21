@@ -18,7 +18,9 @@
 
 {% block content-header-subtitle %}{% trans "Process details" %}{% endblock %}
 {% block content-header-title %}{{ process.name }}{% endblock %}
-
+{% block content-header-explanation %}
+<a href="{% url 'processes:process-so' pk=process.pk %}">{% trans "View Systematic Overview" %}</a>
+{% endblock %}
 
 
 {% block content %}
