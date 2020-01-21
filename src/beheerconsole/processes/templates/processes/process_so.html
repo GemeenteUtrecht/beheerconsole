@@ -1,5 +1,5 @@
 {% extends "master.html" %}
-{% load i18n %}
+{% load i18n sniplates %}
 
 
 {% block crumbs %}
@@ -31,6 +31,7 @@
 
 
 {% block content %}
+{% load_widgets kv='sniplates/key-value.html' %}
 <article class="process process-detail">
 
     <section class="process-detail__information">
@@ -46,6 +47,30 @@
 
         <div class="process-detail__information-section">
             <h3 class="process-detail__information-title">{% trans "Status" %}</h3>
+
+            {% nested_widget 'kv:key-value' label=_("Processing of personal data?") %}
+                <i class="material-icons-outlined material-icons-outlined--small">
+                    {{ process.personal_data|yesno:"check_circle,not_interested" }}
+                </i>
+            {% endnested %}
+
+           {% nested_widget 'kv:key-value' label=_("Process status") %}
+               {{ process.get_process_status_display }}
+           {% endnested %}
+
+           {% nested_widget 'kv:key-value' label=_("Production status") %}
+               {% if not process.deactivation_date %}
+                   {% trans "In production" %}
+                {% else %}
+                    {% blocktrans with h_date=process.deactivation_date|date:"Y-m-d" trimmed %}
+                        Deactivated/historical since {{ h_date }}
+                    {% endblocktrans %}
+               {% endif %}
+           {% endnested %}
+
+           {% nested_widget 'kv:key-value' label=_("Risk level") %}
+               {{ process.get_risk_level_display }}
+           {% endnested %}
         </div>
     </section>
 
