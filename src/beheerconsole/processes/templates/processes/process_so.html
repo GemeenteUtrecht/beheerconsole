@@ -74,6 +74,7 @@
         </div>
     </section>
 
+    {% if zaaktype %}
     <section class="process-app process-detail__related-apps">
         <h3 class="process-detail__section-title">
             {% trans "Zaaktype information & archiving" %}
@@ -145,6 +146,7 @@
         {% endfor %}
 
     </section>
+    {% endif %}
 
 </article>
 {% endblock %}

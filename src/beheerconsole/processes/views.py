@@ -30,5 +30,6 @@ class ProcessSOView(ProcessDetailView):
     template_name = "processes/process_so.html"
 
     def get_context_data(self, **kwargs) -> dict:
-        kwargs["zaaktype"] = load_zaaktype(self.object.zaaktype)
+        if self.object.zaaktype:
+            kwargs["zaaktype"] = load_zaaktype(self.object.zaaktype)
         return super().get_context_data(**kwargs)
