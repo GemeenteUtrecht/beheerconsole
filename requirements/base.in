@@ -6,7 +6,7 @@ python-dotenv
 python-decouple  # processing of envvar configs
 uwsgi
 pillow
-zgw-consumers
+zgw-consumers==0.6.0.dev0
 nlx-url-rewriter
 
 # Framework libraries
@@ -16,4 +16,3 @@ django-redis
 django-filter
 django-camunda
 django-sniplates
-
