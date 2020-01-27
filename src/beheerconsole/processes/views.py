@@ -6,6 +6,7 @@ from django_filters.views import FilterView
 
 from .filters import ProcessFilter
 from .models import Process
+from .service import load_zaaktype
 
 
 class ProcessListView(FilterView):
@@ -27,3 +28,7 @@ class ProcessBpmnView(View):
 
 class ProcessSOView(ProcessDetailView):
     template_name = "processes/process_so.html"
+
+    def get_context_data(self, **kwargs) -> dict:
+        kwargs["zaaktype"] = load_zaaktype(self.object.zaaktype)
+        return super().get_context_data(**kwargs)

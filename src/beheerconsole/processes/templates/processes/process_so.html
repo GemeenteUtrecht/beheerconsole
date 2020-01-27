@@ -1,5 +1,5 @@
 {% extends "master.html" %}
-{% load i18n sniplates %}
+{% load i18n sniplates processes %}
 
 
 {% block crumbs %}
@@ -54,24 +54,96 @@
                 </i>
             {% endnested %}
 
-           {% nested_widget 'kv:key-value' label=_("Process status") %}
-               {{ process.get_process_status_display }}
-           {% endnested %}
+            {% nested_widget 'kv:key-value' label=_("Process status") %}
+                {{ process.get_process_status_display }}
+            {% endnested %}
 
-           {% nested_widget 'kv:key-value' label=_("Production status") %}
-               {% if not process.deactivation_date %}
-                   {% trans "In production" %}
+            {% nested_widget 'kv:key-value' label=_("Production status") %}
+                {% if not process.deactivation_date %}
+                    {% trans "In production" %}
                 {% else %}
                     {% blocktrans with h_date=process.deactivation_date|date:"Y-m-d" trimmed %}
                         Deactivated/historical since {{ h_date }}
                     {% endblocktrans %}
-               {% endif %}
-           {% endnested %}
+                {% endif %}
+            {% endnested %}
 
-           {% nested_widget 'kv:key-value' label=_("Risk level") %}
-               {{ process.get_risk_level_display }}
-           {% endnested %}
+            {% nested_widget 'kv:key-value' label=_("Risk level") %}
+                {{ process.get_risk_level_display }}
+            {% endnested %}
         </div>
+    </section>
+
+    <section class="process-app process-detail__related-apps">
+        <h3 class="process-detail__section-title">
+            {% trans "Zaaktype information & archiving" %}
+        </h3>
+
+        {% nested_widget 'kv:key-value' label=_("Zaaktype") %}
+            {{ zaaktype.omschrijving }}
+        {% endnested %}
+
+        {% nested_widget 'kv:key-value' label=_("Procestype selectielijst") %}
+            {{ zaaktype.selectielijst_procestype.naam }}
+        {% endnested %}
+
+        {% nested_widget 'kv:key-value' label=_("Number process selectielijst") %}
+            {{ zaaktype.selectielijst_procestype.nummer }}
+        {% endnested %}
+
+        <h4 class="process-detail__subtitle">
+            {% trans "Resultaattypen" %}
+        </h4>
+
+        <div class="resultaattype-preview resultaattype-preview--header">
+            <div class="resultaattype-preview__name">
+                {% trans "Description" %}
+            </div>
+            <div class="resultaattype-preview__nomination">
+                {% trans "Action" %}
+            </div>
+            <div class="resultaattype-preview__duration">
+                {% trans "Term" %}
+            </div>
+            <div class="resultaattype-preview__nomination" title="{% trans 'Selectielijstklasse value' %}">
+                {% trans "Action" %}
+            </div>
+            <div class="resultaattype-preview__duration" title="{% trans 'Selectielijstklasse value' %}">
+                {% trans "Term" %}
+            </div>
+            <div class="resultaattype-preview__divergence" title="{% trans 'Divergent from selectielijst?' %}">
+                {% trans "Divergent?" %}
+            </div>
+        </div>
+
+        {% for resultaattype in zaaktype.resultaattypen %}
+            <div class="resultaattype-preview">
+                <div class="resultaattype-preview__name">
+                    {{ resultaattype.omschrijving }}
+                    <span class="resultaattype-preview__selectielijstklasse" title="Selectielijstklasse">
+                        ({{ resultaattype.selectielijstklasse.volledig_nummer }} - {{ resultaattype.selectielijstklasse.naam }})
+                    </span>
+                </div>
+                <div class="resultaattype-preview__nomination">
+                    {{ resultaattype.archiefnominatie }}
+                </div>
+                <div class="resultaattype-preview__duration">
+                    {{ resultaattype.archiefactietermijn|duration }}
+                </div>
+                <div class="resultaattype-preview__nomination resultaattype-preview__nomination--selectielijst">
+                    {{ resultaattype.selectielijstklasse.waardering }}
+                </div>
+                <div class="resultaattype-preview__duration resultaattype-preview__duration--selectielijst">
+                    {{ resultaattype.selectielijstklasse.bewaartermijn|duration }}
+                </div>
+                <div class="resultaattype-preview__divergence">
+                    {% if resultaattype.archiefnominatie != resultaattype.selectielijstklasse.waardering or resultaattype.archiefactietermijn != resultaattype.selectielijstklasse.bewaartermijn %}
+                        <i class="material-icons-outlined">priority_high</i>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
     </section>
 
 </article>
