@@ -6,6 +6,8 @@ from django.contrib.admin import widgets
 from django.utils.html import format_html
 from django.utils.translation import ugettext_lazy as _
 
+from zgw_consumers.admin import ListZaaktypenMixin
+
 from ..camunda.utils import get_processes
 from .models import Department, Process
 
@@ -18,7 +20,7 @@ class DepartmentAdmin(admin.ModelAdmin):
 
 
 @admin.register(Process)
-class ProcessAdmin(admin.ModelAdmin):
+class ProcessAdmin(ListZaaktypenMixin, admin.ModelAdmin):
     list_display = (
         "name",
         "camunda_id",
@@ -33,6 +35,25 @@ class ProcessAdmin(admin.ModelAdmin):
         "initiating_processes",
         "applications",
     )
+    fieldsets = (
+        (None, {"fields": ("name", "description", "department", "other_departments",)}),
+        (_("Relations"), {"fields": ("initiating_processes", "applications")}),
+        (_("Process engine"), {"fields": ("camunda_id",)}),
+        (
+            _("Systematic overview"),
+            {
+                "fields": (
+                    "personal_data",
+                    "process_status",
+                    "deactivation_date",
+                    "risk_level",
+                )
+            },
+        ),
+        (_("Zaakgericht werken"), {"fields": ("zaaktype",)}),
+        (_("Misc3"), {"fields": ()}),
+    )
+    zaaktype_fields = ("zaaktype",)
 
     def formfield_for_dbfield(self, db_field, request, **kwargs):
         if db_field.name == "camunda_id":

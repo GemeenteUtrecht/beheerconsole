@@ -91,8 +91,11 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     # External applications.
     "axes",
+    "sniplates",
     "django_camunda",
     "solo",
+    "nlx_url_rewriter",
+    "zgw_consumers",
     # Project applications.
     "beheerconsole.accounts",
     "beheerconsole.applications",
@@ -347,3 +350,8 @@ if SENTRY_DSN:
             }
         }
     )
+
+#
+# ZGW-CONSUMERS
+#
+ZGW_CONSUMERS_CLIENT_CLASS = "zds_client.nlx.NLXClient"

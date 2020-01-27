@@ -32,4 +32,11 @@
     padding-bottom: 0.5rem;
     border-bottom: solid 2px $theme-primary-color;
   }
+
+  & &__subtitle {
+    @include title;
+    font-size: 1.2rem;
+    text-align: left;
+    text-decoration: underline;
+  }
 }

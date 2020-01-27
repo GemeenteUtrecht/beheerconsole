@@ -13,25 +13,33 @@ chardet==3.0.4            # via requests
 django-appconf==1.0.3     # via django-axes
 django-axes==5.0.20
 django-camunda==0.3.0
+django-choices==1.7.1     # via zgw-consumers
 django-filter==2.2.0
 django-ipware==2.1.0      # via django-axes
 django-redis==4.11.0
-django-solo==1.1.3        # via django-camunda
+django-relativedelta==1.1.0  # via zgw-consumers
+django-sniplates==0.7.0
+django-solo==1.1.3        # via django-camunda, zgw-consumers
 django==3.0.1
+gemma-zds-client==0.13.0  # via zgw-consumers
 idna==2.8                 # via requests
 inflection==0.3.1         # via django-camunda
 kombu==4.6.7              # via celery
+nlx-url-rewriter==0.1.2
 pillow==6.2.1
 psycopg2==2.8.4
-python-dateutil==2.8.1    # via django-camunda
+pyjwt==1.7.1              # via gemma-zds-client
+python-dateutil==2.8.1    # via django-camunda, django-relativedelta
 python-decouple==3.3
 python-dotenv==0.10.3
 pytz==2019.3
+pyyaml==5.3               # via gemma-zds-client
 raven==6.10.0
 redis==3.3.11             # via django-redis
-requests==2.22.0          # via django-camunda
-six==1.13.0               # via django-appconf, python-dateutil
+requests==2.22.0          # via django-camunda, gemma-zds-client
+six==1.13.0               # via django-appconf, django-choices, python-dateutil
 sqlparse==0.3.0           # via django
 urllib3==1.25.7           # via requests
 uwsgi==2.0.18
 vine==1.3.0               # via amqp, celery
+zgw-consumers==0.6.0.dev0

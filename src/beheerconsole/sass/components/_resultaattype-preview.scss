@@ -1,0 +1,51 @@
+@import "../lib/colors";
+
+.resultaattype-preview {
+  display: flex;
+  text-align: left;
+
+  & + & {
+    margin-top: 0.5em;
+  }
+
+  &#{&}--header {
+    font-weight: 600;
+    padding: 0.5em;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    background: #F2F2F2;
+  }
+
+  & &__name {
+    font-weight: 600;
+    width: 25%;
+  }
+
+  & &__selectielijstklasse {
+    display: block;
+    font-weight: 300;
+  }
+
+  & &__nomination {
+    width: 15%;
+
+    &--selectielijst {
+      color: lighten($font-color, 20%);
+      font-weight: 300;
+    }
+  }
+
+  & &__duration {
+    width: 15%;
+
+    &--selectielijst {
+      color: lighten($font-color, 20%);
+      font-weight: 300;
+    }
+  }
+
+  & &__divergence {
+    width: 15%;
+    text-align: right;
+  }
+}
