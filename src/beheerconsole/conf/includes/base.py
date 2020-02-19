@@ -54,8 +54,19 @@ DATABASES = {
         "PASSWORD": config("DB_PASSWORD", "openzaak"),
         "HOST": config("DB_HOST", "localhost"),
         "PORT": config("DB_PORT", 5432),
-    }
+    },
+    "nlx": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": config("NLX_DB_NAME", "txlog"),
+        "USER": config("NLX_DB_USER", "nlx-txlog-api"),
+        "PASSWORD": config("NLX_DB_PASSWORD", "nlx"),
+        "HOST": config("NLX_DB_HOST", "localhost"),
+        "PORT": config("NLX_DB_PORT", 5432),
+        "OPTIONS": {"options": "--search_path=transactionlog",},
+    },
 }
+
+DATABASE_ROUTERS = ["beheerconsole.nlx.db_router.NLXRouter"]
 
 CACHES = {
     "default": {
@@ -101,6 +112,7 @@ INSTALLED_APPS = [
     "beheerconsole.applications",
     "beheerconsole.camunda",
     "beheerconsole.processes",
+    "beheerconsole.nlx",
     "beheerconsole.utils",
 ]
 
