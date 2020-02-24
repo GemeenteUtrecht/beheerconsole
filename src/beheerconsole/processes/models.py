@@ -15,6 +15,9 @@ The applications app relates back to processes.
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from django_activiti.fields import (
+    ProcessDefinitionField as ActivitiProcessDefinitionField,
+)
 from django_camunda.client import get_client_class
 
 from ..camunda.models import CamundaBasicAuthConfig
@@ -54,6 +57,8 @@ class Process(models.Model):
         help_text=_("Process definition ID in Camunda."),
         blank=True,
     )
+    activiti_id = ActivitiProcessDefinitionField(_("Activiti process"), blank=True,)
+
     description = models.TextField(
         _("description"),
         blank=True,
