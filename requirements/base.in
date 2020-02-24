@@ -11,8 +11,9 @@ nlx-url-rewriter
 
 # Framework libraries
 Django
+django-activiti
 django-axes
-django-redis
-django-filter
 django-camunda
+django-filter
+django-redis
 django-sniplates

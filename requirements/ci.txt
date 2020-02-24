@@ -4,55 +4,56 @@
 #
 #    pip-compile --no-index --output-file=requirements/ci.txt requirements/base.txt requirements/test-tools.in
 #
-amqp==2.5.2
-asgiref==3.2.3
+amqp==2.5.2               # via -r requirements/base.txt (line 7), kombu
+asgiref==3.2.3            # via -r requirements/base.txt (line 8), django
 beautifulsoup4==4.8.1     # via webtest
-billiard==3.6.1.0
-celery==4.4.0
-certifi==2019.11.28
-chardet==3.0.4
-coverage==4.5.4
-django-appconf==1.0.3
-django-axes==5.0.20
-django-camunda==0.3.0
-django-choices==1.7.1
-django-filter==2.2.0
-django-ipware==2.1.0
-django-redis==4.11.0
-django-relativedelta==1.1.0
-django-sniplates==0.7.0
-django-solo==1.1.3
-django-webtest==1.9.7
-django==3.0.1
-factory-boy==2.12.0
+billiard==3.6.1.0         # via -r requirements/base.txt (line 9), celery
+celery==4.4.0             # via -r requirements/base.txt (line 10), django-camunda
+certifi==2019.11.28       # via -r requirements/base.txt (line 11), requests
+chardet==3.0.4            # via -r requirements/base.txt (line 12), requests
+coverage==4.5.4           # via -r requirements/test-tools.in (line 2)
+django-activiti==0.1.0    # via -r requirements/base.txt (line 13)
+django-appconf==1.0.3     # via -r requirements/base.txt (line 14), django-axes
+django-axes==5.0.20       # via -r requirements/base.txt (line 15)
+django-camunda==0.3.0     # via -r requirements/base.txt (line 16)
+django-choices==1.7.1     # via -r requirements/base.txt (line 17), zgw-consumers
+django-filter==2.2.0      # via -r requirements/base.txt (line 18)
+django-ipware==2.1.0      # via -r requirements/base.txt (line 19), django-axes
+django-redis==4.11.0      # via -r requirements/base.txt (line 20)
+django-relativedelta==1.1.0  # via -r requirements/base.txt (line 21), zgw-consumers
+django-sniplates==0.7.0   # via -r requirements/base.txt (line 22)
+django-solo==1.1.3        # via -r requirements/base.txt (line 23), django-activiti, django-camunda, zgw-consumers
+django-webtest==1.9.7     # via -r requirements/test-tools.in (line 3)
+django==3.0.1             # via -r requirements/base.txt (line 24), django-activiti, django-appconf, django-axes, django-camunda, django-choices, django-filter, django-redis, django-relativedelta, django-sniplates, nlx-url-rewriter, zgw-consumers
+factory-boy==2.12.0       # via -r requirements/test-tools.in (line 4)
 faker==2.0.4              # via factory-boy
-freezegun==0.3.12
-gemma-zds-client==0.13.0
-idna==2.8
-inflection==0.3.1
-kombu==4.6.7
-nlx-url-rewriter==0.1.2
-pillow==6.2.1
-psycopg2==2.8.4
-pyjwt==1.7.1
-python-dateutil==2.8.1
-python-decouple==3.3
-python-dotenv==0.10.3
-pytz==2019.3
-pyyaml==5.3
-raven==6.10.0
-redis==3.3.11
-requests-mock==1.7.0
-requests==2.22.0
-six==1.13.0
+freezegun==0.3.12         # via -r requirements/test-tools.in (line 5)
+gemma-zds-client==0.13.0  # via -r requirements/base.txt (line 25), zgw-consumers
+idna==2.8                 # via -r requirements/base.txt (line 26), requests
+inflection==0.3.1         # via -r requirements/base.txt (line 27), django-activiti, django-camunda
+kombu==4.6.7              # via -r requirements/base.txt (line 28), celery
+nlx-url-rewriter==0.1.2   # via -r requirements/base.txt (line 29)
+pillow==6.2.1             # via -r requirements/base.txt (line 30)
+psycopg2==2.8.4           # via -r requirements/base.txt (line 31)
+pyjwt==1.7.1              # via -r requirements/base.txt (line 32), gemma-zds-client
+python-dateutil==2.8.1    # via -r requirements/base.txt (line 33), django-camunda, django-relativedelta, faker, freezegun
+python-decouple==3.3      # via -r requirements/base.txt (line 34)
+python-dotenv==0.10.3     # via -r requirements/base.txt (line 35)
+pytz==2019.3              # via -r requirements/base.txt (line 36), celery, django
+pyyaml==5.3               # via -r requirements/base.txt (line 37), gemma-zds-client
+raven==6.10.0             # via -r requirements/base.txt (line 38)
+redis==3.3.11             # via -r requirements/base.txt (line 39), django-redis
+requests-mock==1.7.0      # via -r requirements/test-tools.in (line 6)
+requests==2.22.0          # via -r requirements/base.txt (line 40), django-activiti, django-camunda, gemma-zds-client, requests-mock
+six==1.13.0               # via -r requirements/base.txt (line 41), django-appconf, django-choices, faker, freezegun, python-dateutil, requests-mock, webtest
 soupsieve==1.9.5          # via beautifulsoup4
-sqlparse==0.3.0
-tblib==1.5.0
+sqlparse==0.3.0           # via -r requirements/base.txt (line 42), django
+tblib==1.5.0              # via -r requirements/test-tools.in (line 7)
 text-unidecode==1.3       # via faker
-urllib3==1.25.7
-uwsgi==2.0.18
-vine==1.3.0
+urllib3==1.25.7           # via -r requirements/base.txt (line 43), requests
+uwsgi==2.0.18             # via -r requirements/base.txt (line 44)
+vine==1.3.0               # via -r requirements/base.txt (line 45), amqp, celery
 waitress==1.4.2           # via webtest
 webob==1.8.5              # via webtest
 webtest==2.0.33           # via django-webtest
-zgw-consumers==0.6.0.dev0
+zgw-consumers==0.6.0.dev0  # via -r requirements/base.txt (line 46)
