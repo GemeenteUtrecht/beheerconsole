@@ -15,10 +15,11 @@ The applications app relates back to processes.
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from django_activiti.client import get_client_class as get_activiti_client_class
 from django_activiti.fields import (
     ProcessDefinitionField as ActivitiProcessDefinitionField,
 )
-from django_camunda.client import get_client_class
+from django_camunda.client import get_client_class as get_camunda_client_class
 
 from ..camunda.models import CamundaBasicAuthConfig
 from .constants import ProcessStatusChoices, RiskLevels
@@ -151,14 +152,32 @@ class Process(models.Model):
         return self.camunda_id.split(":")[0]
 
     @property
-    def version(self) -> str:
-        if not self.camunda_id:
+    def activiti_key(self) -> str:
+        if not self.activiti_id:
             return ""
-        return self.camunda_id.split(":")[1]
+        return self.activiti_id.split(":")[0]
 
-    def xml(self):
+    @property
+    def version(self) -> str:
+        if self.activiti_id:
+            return self.activiti_id.split(":")[1]
+        elif self.camunda_id:
+            return self.camunda_id.split(":")[1]
+        return ""
+
+    def xml(self) -> str:
+        if self.activiti_id:
+            client = get_activiti_client_class()()
+            xml_data = client.get(
+                f"repository/process-definitions/{self.activiti_id}/resourcedata"
+            ).decode()
+            return xml_data
+
         if self.camunda_id:
-            client = get_client_class()(config=CamundaBasicAuthConfig.get_solo())
+            client = get_camunda_client_class()(
+                config=CamundaBasicAuthConfig.get_solo()
+            )
             response = client.request(f"process-definition/{self.camunda_id}/xml")
             return response["bpmn20_xml"]
+
         return ""

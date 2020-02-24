@@ -115,7 +115,11 @@
     <!-- BPMN -->
     <section class="process-app process-detail__related-apps">
         <h3 class="process-detail__section-title">{% trans "BPMN schema" %}</h3>
-        {% if process.camunda_id %}
+        {% if process.activiti_id %}
+            {% blocktrans with key=process.activiti_key version=process.version trimmed %}
+                Activiti process: <code>{{ key }} (version {{ version }})</code>
+            {% endblocktrans %}
+        {% elif process.camunda_id %}
             {% blocktrans with key=process.camunda_key version=process.version trimmed %}
                 Camunda process: <code>{{ key }} (version {{ version }})</code>
             {% endblocktrans %}

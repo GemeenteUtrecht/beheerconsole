@@ -12,7 +12,7 @@ celery==4.4.0             # via -r requirements/base.txt (line 10), django-camun
 certifi==2019.11.28       # via -r requirements/base.txt (line 11), requests
 chardet==3.0.4            # via -r requirements/base.txt (line 12), requests
 coverage==4.5.4           # via -r requirements/test-tools.in (line 2)
-django-activiti==0.1.0    # via -r requirements/base.txt (line 13)
+django-activiti==0.1.1    # via -r requirements/base.txt (line 13)
 django-appconf==1.0.3     # via -r requirements/base.txt (line 14), django-axes
 django-axes==5.0.20       # via -r requirements/base.txt (line 15)
 django-camunda==0.3.0     # via -r requirements/base.txt (line 16)
