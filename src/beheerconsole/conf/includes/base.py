@@ -103,6 +103,7 @@ INSTALLED_APPS = [
     # External applications.
     "axes",
     "sniplates",
+    "django_activiti",
     "django_camunda",
     "solo",
     "nlx_url_rewriter",
