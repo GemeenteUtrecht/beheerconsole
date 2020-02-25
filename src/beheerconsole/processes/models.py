@@ -129,6 +129,15 @@ class Process(models.Model):
         blank=True,
         help_text=_("Zaaktype in the Catalogi API."),
     )
+    zaaktype_owner = models.ForeignKey(
+        "Department",
+        on_delete=models.PROTECT,
+        blank=True,
+        null=True,
+        related_name="+",
+        verbose_name=_("zaaktype owner"),
+        help_text=_("The department owning the zaaktype."),
+    )
     risk_level = models.CharField(
         _("risk level"), max_length=50, choices=RiskLevels.choices, blank=True
     )

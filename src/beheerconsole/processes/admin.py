@@ -52,10 +52,15 @@ class ProcessAdmin(ActivitiFieldsMixin, ListZaaktypenMixin, admin.ModelAdmin):
                     "risk_level",
                     "location_digital",
                     "location_analogue",
+                    "zaaktype_owner",
                 )
             },
         ),
         (_("Zaakgericht werken"), {"fields": ("zaaktype",)}),
+    )
+    raw_id_fields = (
+        "department",
+        "zaaktype_owner",
     )
     zaaktype_fields = ("zaaktype",)
 

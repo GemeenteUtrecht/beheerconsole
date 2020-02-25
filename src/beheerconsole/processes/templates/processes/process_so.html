@@ -74,6 +74,20 @@
         </div>
     </section>
 
+    <section class="process-app process-detail__related-apps">
+        <h3 class="process-detail__section-title">
+            {% trans "Ownership" %}
+        </h3>
+
+        {% nested_widget 'kv:key-value' label=_("Process owner") %}
+            {{ process.department.name }}
+        {% endnested %}
+
+        {% nested_widget 'kv:key-value' label=_("Zaaktype owner") %}
+            {{ process.zaaktype_owner.name|default:"-" }}
+        {% endnested %}
+    </section>
+
     {% if zaaktype %}
     <section class="process-app process-detail__related-apps">
         <h3 class="process-detail__section-title">
