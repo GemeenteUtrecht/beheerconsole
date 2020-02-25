@@ -20,18 +20,21 @@ from django_activiti.fields import (
     ProcessDefinitionField as ActivitiProcessDefinitionField,
 )
 from django_camunda.client import get_client_class as get_camunda_client_class
+from treebeard.mp_tree import MP_Node
 
 from ..camunda.models import CamundaBasicAuthConfig
-from .constants import ProcessStatusChoices, RiskLevels
+from .constants import ProcessStatusChoices, RiskLevels, StorageTypes
 
 
-class Department(models.Model):
+class Department(MP_Node):
     name = models.CharField(_("name"), max_length=255)
     contact_details = models.TextField(
         _("contact details"),
         blank=True,
         help_text=_("Contact details for the responsible(s) of the department."),
     )
+
+    node_order_by = ["name"]
 
     class Meta:
         verbose_name = _("department")
@@ -126,8 +129,37 @@ class Process(models.Model):
         blank=True,
         help_text=_("Zaaktype in the Catalogi API."),
     )
+    zaaktype_owner = models.ForeignKey(
+        "Department",
+        on_delete=models.PROTECT,
+        blank=True,
+        null=True,
+        related_name="+",
+        verbose_name=_("zaaktype owner"),
+        help_text=_("The department owning the zaaktype."),
+    )
     risk_level = models.CharField(
         _("risk level"), max_length=50, choices=RiskLevels.choices, blank=True
+    )
+
+    # locations of archive
+    location_digital = models.ForeignKey(
+        "StorageLocation",
+        on_delete=models.PROTECT,
+        limit_choices_to={"storage_type": StorageTypes.digital},
+        blank=True,
+        null=True,
+        verbose_name=_("Location digital"),
+        related_name="+",
+    )
+    location_analogue = models.ForeignKey(
+        "StorageLocation",
+        on_delete=models.PROTECT,
+        limit_choices_to={"storage_type": StorageTypes.analogue},
+        blank=True,
+        null=True,
+        verbose_name=_("Location analogue"),
+        related_name="+",
     )
 
     class Meta:
@@ -181,3 +213,20 @@ class Process(models.Model):
             return response["bpmn20_xml"]
 
         return ""
+
+
+class StorageLocation(models.Model):
+    name = models.CharField(_("name"), max_length=100)
+    storage_type = models.CharField(
+        _("storage type"),
+        max_length=50,
+        choices=StorageTypes.choices,
+        default=StorageTypes.digital,
+    )
+
+    class Meta:
+        verbose_name = _("storage location")
+        verbose_name_plural = _("storage locations")
+
+    def __str__(self):
+        return self.name

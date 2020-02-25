@@ -11,3 +11,8 @@ class ProcessStatusChoices(models.TextChoices):
 class RiskLevels(models.TextChoices):
     high = "high", _("High risk")
     low = "low", _("Low risk")
+
+
+class StorageTypes(models.TextChoices):
+    digital = "digital", _("Digital")
+    analogue = "analogue", _("Analogue")

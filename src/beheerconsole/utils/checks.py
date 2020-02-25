@@ -4,6 +4,8 @@ from django.conf import settings
 from django.core.checks import Error, Warning, register
 from django.forms import ModelForm
 
+from treebeard.forms import MoveNodeForm
+
 
 def get_subclasses(cls):
     for subclass in cls.__subclasses__():
@@ -27,6 +29,11 @@ def check_modelform_exclude(app_configs, **kwargs):
     errors = []
 
     for form in get_subclasses(ModelForm):
+
+        # Since MoveNodeForm is only used through modelform_factory
+        if form == MoveNodeForm or issubclass(form, MoveNodeForm):
+            continue
+
         # ok, fields is defined
         if form._meta.fields or getattr(form.Meta, "fields", None):
             continue

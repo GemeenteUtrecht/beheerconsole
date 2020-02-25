@@ -17,3 +17,4 @@ django-camunda
 django-filter
 django-redis
 django-sniplates
+django-treebeard

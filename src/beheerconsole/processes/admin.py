@@ -7,17 +7,19 @@ from django.utils.html import format_html
 from django.utils.translation import ugettext_lazy as _
 
 from django_activiti.admin import ActivitiFieldsMixin
+from treebeard.admin import TreeAdmin
+from treebeard.forms import movenodeform_factory
 from zgw_consumers.admin import ListZaaktypenMixin
 
 from ..camunda.utils import get_processes
-from .models import Department, Process
+from .models import Department, Process, StorageLocation
 
 
 @admin.register(Department)
-class DepartmentAdmin(admin.ModelAdmin):
+class DepartmentAdmin(TreeAdmin):
     list_display = ("name",)
     search_fields = ("name",)
-    ordering = ("name",)
+    form = movenodeform_factory(Department)
 
 
 @admin.register(Process)
@@ -48,11 +50,17 @@ class ProcessAdmin(ActivitiFieldsMixin, ListZaaktypenMixin, admin.ModelAdmin):
                     "process_status",
                     "deactivation_date",
                     "risk_level",
+                    "location_digital",
+                    "location_analogue",
+                    "zaaktype_owner",
                 )
             },
         ),
         (_("Zaakgericht werken"), {"fields": ("zaaktype",)}),
-        (_("Misc3"), {"fields": ()}),
+    )
+    raw_id_fields = (
+        "department",
+        "zaaktype_owner",
     )
     zaaktype_fields = ("zaaktype",)
 
@@ -85,3 +93,11 @@ class ProcessAdmin(ActivitiFieldsMixin, ListZaaktypenMixin, admin.ModelAdmin):
             )
 
         return super().formfield_for_dbfield(db_field, request, **kwargs)
+
+
+@admin.register(StorageLocation)
+class StorageLocationAdmin(admin.ModelAdmin):
+    list_display = ("name", "storage_type")
+    list_filter = ("storage_type",)
+    search_fields = ("name",)
+    ordering = ("name",)
