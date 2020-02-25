@@ -81,6 +81,9 @@
         </h3>
 
         {% nested_widget 'kv:key-value' label=_("Zaaktype") %}
+            {% if zaaktype.concept %}
+                <small title="{% trans 'Zaaktype under development' %}">(CONCEPT)</small> -
+            {% endif %}
             {{ zaaktype.omschrijving }}
         {% endnested %}
 

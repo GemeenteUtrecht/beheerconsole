@@ -16,6 +16,7 @@ def load_zaaktype(url: str) -> ZaakType:
     api_data["selectielijstProcestype"] = ProcesType.from_raw(procestype_data)
 
     zaaktype = ZaakType.from_raw(api_data)
+    zaaktype.concept = api_data["concept"]
 
     # fetch resultaattypen
     resultaattypen_data = client.list("resultaattype", query_params={"zaaktype": url,})[
