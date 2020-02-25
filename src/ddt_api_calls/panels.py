@@ -8,6 +8,9 @@ from debug_toolbar.panels import Panel
 from requests_mock import adapter, exceptions
 from requests_mock.mocker import _original_send
 
+# TODO: persist data over requests - POST followed by redirect does not display the
+# API calls made.
+
 
 class PanelMocker(requests_mock.Mocker):
     def start(self):
@@ -51,11 +54,15 @@ class PanelMocker(requests_mock.Mocker):
             finally:
                 requests.Session.get_adapter = real_get_adapter
 
-            response = _original_send(session, request, **kwargs)
-
-            duration = (time.time() - start) * 1000  # duration in ms
-            self.request_history[-1].duration = int(duration)
-            self.request_history[-1].status_code = response.status_code
+            try:
+                response = _original_send(session, request, **kwargs)
+            except Exception:
+                raise
+            else:
+                self.request_history[-1].status_code = response.status_code
+            finally:
+                duration = (time.time() - start) * 1000  # duration in ms
+                self.request_history[-1].duration = int(duration)
             return response
 
         requests.Session.send = _fake_send

@@ -6,6 +6,7 @@ from django.contrib.admin import widgets
 from django.utils.html import format_html
 from django.utils.translation import ugettext_lazy as _
 
+from django_activiti.admin import ActivitiFieldsMixin
 from zgw_consumers.admin import ListZaaktypenMixin
 
 from ..camunda.utils import get_processes
@@ -20,7 +21,7 @@ class DepartmentAdmin(admin.ModelAdmin):
 
 
 @admin.register(Process)
-class ProcessAdmin(ListZaaktypenMixin, admin.ModelAdmin):
+class ProcessAdmin(ActivitiFieldsMixin, ListZaaktypenMixin, admin.ModelAdmin):
     list_display = (
         "name",
         "camunda_id",
@@ -38,7 +39,7 @@ class ProcessAdmin(ListZaaktypenMixin, admin.ModelAdmin):
     fieldsets = (
         (None, {"fields": ("name", "description", "department", "other_departments",)}),
         (_("Relations"), {"fields": ("initiating_processes", "applications")}),
-        (_("Process engine"), {"fields": ("camunda_id",)}),
+        (_("Process engine"), {"fields": ("camunda_id", "activiti_id",)}),
         (
             _("Systematic overview"),
             {
