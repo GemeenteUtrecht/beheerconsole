@@ -20,18 +20,21 @@ from django_activiti.fields import (
     ProcessDefinitionField as ActivitiProcessDefinitionField,
 )
 from django_camunda.client import get_client_class as get_camunda_client_class
+from treebeard.mp_tree import MP_Node
 
 from ..camunda.models import CamundaBasicAuthConfig
 from .constants import ProcessStatusChoices, RiskLevels, StorageTypes
 
 
-class Department(models.Model):
+class Department(MP_Node):
     name = models.CharField(_("name"), max_length=255)
     contact_details = models.TextField(
         _("contact details"),
         blank=True,
         help_text=_("Contact details for the responsible(s) of the department."),
     )
+
+    node_order_by = ["name"]
 
     class Meta:
         verbose_name = _("department")

@@ -7,6 +7,8 @@ from django.utils.html import format_html
 from django.utils.translation import ugettext_lazy as _
 
 from django_activiti.admin import ActivitiFieldsMixin
+from treebeard.admin import TreeAdmin
+from treebeard.forms import movenodeform_factory
 from zgw_consumers.admin import ListZaaktypenMixin
 
 from ..camunda.utils import get_processes
@@ -14,10 +16,10 @@ from .models import Department, Process, StorageLocation
 
 
 @admin.register(Department)
-class DepartmentAdmin(admin.ModelAdmin):
+class DepartmentAdmin(TreeAdmin):
     list_display = ("name",)
     search_fields = ("name",)
-    ordering = ("name",)
+    form = movenodeform_factory(Department)
 
 
 @admin.register(Process)

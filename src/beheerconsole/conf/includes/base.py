@@ -108,6 +108,7 @@ INSTALLED_APPS = [
     "solo",
     "nlx_url_rewriter",
     "zgw_consumers",
+    "treebeard",
     # Project applications.
     "beheerconsole.accounts",
     "beheerconsole.applications",
