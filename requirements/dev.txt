@@ -33,7 +33,7 @@ django-relativedelta==1.1.0  # via -r requirements/ci.txt (line 23), zgw-consume
 django-sniplates==0.7.0   # via -r requirements/ci.txt (line 24)
 django-solo==1.1.3        # via -r requirements/ci.txt (line 25), django-activiti, django-camunda, zgw-consumers
 django-webtest==1.9.7     # via -r requirements/ci.txt (line 26)
-django==3.0.1             # via -r requirements/ci.txt (line 27), django-activiti, django-appconf, django-axes, django-camunda, django-choices, django-debug-toolbar, django-filter, django-redis, django-relativedelta, django-sniplates, nlx-url-rewriter, zgw-consumers
+django==3.0.3             # via -r requirements/ci.txt (line 27), django-activiti, django-appconf, django-axes, django-camunda, django-choices, django-debug-toolbar, django-filter, django-redis, django-relativedelta, django-sniplates, nlx-url-rewriter, zgw-consumers
 docutils==0.15.2          # via sphinx
 factory-boy==2.12.0       # via -r requirements/ci.txt (line 28)
 faker==2.0.4              # via -r requirements/ci.txt (line 29), factory-boy
@@ -84,7 +84,7 @@ typed-ast==1.4.0          # via black
 urllib3==1.25.7           # via -r requirements/ci.txt (line 53), requests
 uwsgi==2.0.18             # via -r requirements/ci.txt (line 54)
 vine==1.3.0               # via -r requirements/ci.txt (line 55), amqp, celery
-waitress==1.4.2           # via -r requirements/ci.txt (line 56), webtest
+waitress==1.4.3           # via -r requirements/ci.txt (line 56), webtest
 webob==1.8.5              # via -r requirements/ci.txt (line 57), webtest
 webtest==2.0.33           # via -r requirements/ci.txt (line 58), django-webtest
 zgw-consumers==0.6.0.dev0  # via -r requirements/ci.txt (line 59)
