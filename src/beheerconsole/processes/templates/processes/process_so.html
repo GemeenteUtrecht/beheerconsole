@@ -148,5 +148,20 @@
     </section>
     {% endif %}
 
+    <section class="process-app process-detail__related-apps">
+        <h3 class="process-detail__section-title">
+            {% trans "Archive locations" %}
+        </h3>
+
+        {% nested_widget 'kv:key-value' label=_("Digital") %}
+            {{ process.location_digital.name|default:"-" }}
+        {% endnested %}
+
+        {% nested_widget 'kv:key-value' label=_("Analogue") %}
+            {{ process.location_analogue.name|default:"-" }}
+        {% endnested %}
+
+    </section>
+
 </article>
 {% endblock %}

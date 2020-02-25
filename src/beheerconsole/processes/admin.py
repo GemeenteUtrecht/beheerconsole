@@ -54,7 +54,6 @@ class ProcessAdmin(ActivitiFieldsMixin, ListZaaktypenMixin, admin.ModelAdmin):
             },
         ),
         (_("Zaakgericht werken"), {"fields": ("zaaktype",)}),
-        (_("Misc3"), {"fields": ()}),
     )
     zaaktype_fields = ("zaaktype",)
 
