@@ -1,0 +1,743 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-25 16:34+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/beheerconsole/accounts/models.py:15
+msgid "username"
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:18
+msgid "Required. 150 characters or fewer."
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:19
+msgid "A user with that username already exists."
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:21
+msgid "first name"
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:22
+msgid "last name"
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:23
+msgid "email address"
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:25
+msgid "staff status"
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:27
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:30
+msgid "active"
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:33
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:37
+msgid "date joined"
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:45
+msgid "user"
+msgstr ""
+
+#: src/beheerconsole/accounts/models.py:46
+msgid "users"
+msgstr ""
+
+#: src/beheerconsole/applications/models.py:7
+#: src/beheerconsole/applications/models.py:68
+#: src/beheerconsole/processes/models.py:30
+#: src/beheerconsole/processes/models.py:56
+#: src/beheerconsole/processes/models.py:219
+msgid "name"
+msgstr "naam"
+
+#: src/beheerconsole/applications/models.py:9
+#: src/beheerconsole/applications/models.py:70
+#: src/beheerconsole/processes/models.py:67
+msgid "description"
+msgstr "beschrijving"
+
+#: src/beheerconsole/applications/models.py:12
+msgid ""
+"A description of the application - what does it do, when should you use it..."
+msgstr ""
+"Beschrijving van de applicatie - wat doet het, wanneer gebruik je het..."
+
+#: src/beheerconsole/applications/models.py:16
+msgid "url"
+msgstr "url"
+
+#: src/beheerconsole/applications/models.py:18
+msgid "URL to the application - preferably a home page or similar."
+msgstr "URL naar de applicatie - bij voorkeur een landingspagina of vergelijkbaar."
+
+#: src/beheerconsole/applications/models.py:21
+msgid "admin url"
+msgstr "admin url"
+
+#: src/beheerconsole/applications/models.py:23
+msgid "URL to the application administrative interface."
+msgstr "URL naar de administratieve interface van de applicatie."
+
+#: src/beheerconsole/applications/models.py:26
+msgid "vendor"
+msgstr "leverancier"
+
+#: src/beheerconsole/applications/models.py:28
+msgid "Software vendor - who built the appliation and/or maintains it?"
+msgstr "Softwareleverancier - wie heeft de applicatie gebouwd en/of beheert deze?"
+
+#: src/beheerconsole/applications/models.py:31
+msgid "repository URL"
+msgstr "repository URL"
+
+#: src/beheerconsole/applications/models.py:33
+msgid "URL to the code repository, e.g. Github, Gitlab, Bitbucket..."
+msgstr "URL naar de repository met de code (vb. Github, Gitlab, Bitbucket...)"
+
+#: src/beheerconsole/applications/models.py:36
+msgid "logo"
+msgstr "logo"
+
+#: src/beheerconsole/applications/models.py:39
+msgid "Logo image of the application"
+msgstr "Afbeelding met het logo van de applicatie"
+
+#: src/beheerconsole/applications/models.py:46
+msgid "layer"
+msgstr "laag"
+
+#: src/beheerconsole/applications/models.py:47
+msgid "The layer of the application."
+msgstr "De Common Ground-laag van de applicatie."
+
+#: src/beheerconsole/applications/models.py:51
+msgid "application"
+msgstr "applicatie"
+
+#: src/beheerconsole/applications/models.py:52
+msgid "applications"
+msgstr "applicaties"
+
+#: src/beheerconsole/applications/models.py:66
+msgid "tier"
+msgstr "laag"
+
+#: src/beheerconsole/applications/models.py:66
+msgid "The tier number of the layer"
+msgstr "Het laagnummer van de laag"
+
+#: src/beheerconsole/applications/models.py:72
+msgid "Describe the meaning of this Common Ground layer"
+msgstr "Beschrijf de betekenis van deze Common Ground-laag"
+
+#: src/beheerconsole/applications/templates/applications/application_detail.html:7
+#: src/beheerconsole/applications/templates/applications/application_list.html:7
+msgid "Software"
+msgstr "Software"
+
+#: src/beheerconsole/applications/templates/applications/application_detail.html:19
+msgid "Application details"
+msgstr "Applicatiedetails"
+
+#: src/beheerconsole/applications/templates/applications/application_list.html:14
+msgid "List of applications deployed in the organization"
+msgstr "Lijst van applicaties geïnstalleerd in de organisatie"
+
+#: src/beheerconsole/applications/templates/applications/application_list.html:16
+#: src/beheerconsole/processes/templates/processes/process_detail.html:93
+#: src/beheerconsole/templates/index.html:28
+msgid "Applications"
+msgstr "Applicaties"
+
+#: src/beheerconsole/applications/templates/applications/application_list.html:19
+msgid ""
+"On this page you see a list of all deployed applications with their vendors. "
+"You can use the filters on the right to select applications from a "
+"particular layer in the <a href=\"https://commonground.nl/\" target=\"_blank"
+"\" rel=\"noopener nofollow\">Common Ground</a> vision. <br> For more details "
+"about an application, please go to the detail page where you can find "
+"contact details for the vendor and utility URLs."
+msgstr ""
+"Op deze pagina zie je een lijst van alle uitgerolde applicaties en de leveranciers. "
+"Je kan de filters aan de rechterkant gebruiken om applicaties te selecteren uit een "
+"bepaalde laag uit de <a href=\"https://commonground.nl/\" target=\"_blank"
+"\" rel=\"noopener nofollow\">Common Ground</a> visie. <br> Ga naar de detailpagina "
+"voor meer informatie over een applicatie. Daar vind je de contactgegevens van de "
+"leverancier en handige links."
+
+#: src/beheerconsole/applications/templates/applications/application_list.html:36
+#, python-format
+msgid "<i class=\"fa fa-bookmark\"></i> %(vendor)s"
+msgstr ""
+
+#: src/beheerconsole/camunda/models.py:10
+msgid "username for BasicAuth"
+msgstr "BasicAuth gebruikersnaam"
+
+#: src/beheerconsole/camunda/models.py:11
+msgid "password for BasicAuth"
+msgstr "BasicAuth wachtwoord"
+
+#: src/beheerconsole/nlx/models.py:7
+msgid "Incoming"
+msgstr "Binnenkomend"
+
+#: src/beheerconsole/nlx/models.py:8
+msgid "Outgoing"
+msgstr "Uitgaand"
+
+#: src/beheerconsole/nlx/models.py:14
+msgid "direction"
+msgstr "richting"
+
+#: src/beheerconsole/nlx/models.py:16
+msgid "created"
+msgstr "aangemaakt"
+
+#: src/beheerconsole/nlx/models.py:17
+msgid "source"
+msgstr "bron"
+
+#: src/beheerconsole/nlx/models.py:18
+msgid "destination"
+msgstr "bestemming"
+
+#: src/beheerconsole/nlx/models.py:19
+msgid "service name"
+msgstr "servicenaam"
+
+#: src/beheerconsole/nlx/models.py:20
+msgid "logrecord ID"
+msgstr "logrecord ID"
+
+#: src/beheerconsole/nlx/models.py:21
+msgid "data"
+msgstr "gegevens"
+
+#: src/beheerconsole/nlx/models.py:34
+msgid "key"
+msgstr "sleutel"
+
+#: src/beheerconsole/nlx/models.py:35
+msgid "value"
+msgstr "waarde"
+
+#: src/beheerconsole/processes/admin.py:43
+msgid "Relations"
+msgstr "Relaties"
+
+#: src/beheerconsole/processes/admin.py:44
+msgid "Process engine"
+msgstr "Procesengine"
+
+#: src/beheerconsole/processes/admin.py:46
+#: src/beheerconsole/processes/templates/processes/process_so.html:18
+#: src/beheerconsole/processes/templates/processes/process_so.html:24
+msgid "Systematic overview"
+msgstr "Systematisch overzicht"
+
+#: src/beheerconsole/processes/admin.py:59
+msgid "Zaakgericht werken"
+msgstr "Zaakgericht werken"
+
+#: src/beheerconsole/processes/admin.py:75
+#, python-brace-format
+msgid "Process: <code>{key}</code>"
+msgstr "Proces: <code>{key}</code>"
+
+#: src/beheerconsole/processes/admin.py:79
+#, python-brace-format
+msgid "{name} (version {version})"
+msgstr "{name} (versie {version})"
+
+#: src/beheerconsole/processes/constants.py:6
+msgid "Active"
+msgstr "Actief"
+
+#: src/beheerconsole/processes/constants.py:7
+msgid "Deactivated"
+msgstr "Gedeactiveerd"
+
+#: src/beheerconsole/processes/constants.py:8
+msgid "Historical"
+msgstr "Historisch"
+
+#: src/beheerconsole/processes/constants.py:12
+msgid "High risk"
+msgstr "Hoog risico"
+
+#: src/beheerconsole/processes/constants.py:13
+msgid "Low risk"
+msgstr "Laag risico"
+
+#: src/beheerconsole/processes/constants.py:17
+#: src/beheerconsole/processes/templates/processes/process_so.html:173
+msgid "Digital"
+msgstr "Digitaal"
+
+#: src/beheerconsole/processes/constants.py:18
+#: src/beheerconsole/processes/templates/processes/process_so.html:177
+msgid "Analogue"
+msgstr "Analoog"
+
+#: src/beheerconsole/processes/models.py:32
+msgid "contact details"
+msgstr "contactgegevens"
+
+#: src/beheerconsole/processes/models.py:34
+msgid "Contact details for the responsible(s) of the department."
+msgstr "Contactgegevens van de verantwoorelijke(n) voor het organisatieonderdeel. "
+
+#: src/beheerconsole/processes/models.py:40
+#: src/beheerconsole/processes/models.py:75
+msgid "department"
+msgstr "organisatieonderdeel"
+
+#: src/beheerconsole/processes/models.py:41
+msgid "departments"
+msgstr "organisatieonderdelen"
+
+#: src/beheerconsole/processes/models.py:56
+msgid "Human-friendly name."
+msgstr "Vriendelijke naam."
+
+#: src/beheerconsole/processes/models.py:59
+msgid "Camunda process"
+msgstr "Camundaproces"
+
+#: src/beheerconsole/processes/models.py:61
+msgid "Process definition ID in Camunda."
+msgstr "Procesdefinitie ID in Camunda."
+
+#: src/beheerconsole/processes/models.py:64
+msgid "Activiti process"
+msgstr "Activitiproces"
+
+#: src/beheerconsole/processes/models.py:69
+msgid "Extended description of the process."
+msgstr "Uitgebreide omschrijving van het proces."
+
+#: src/beheerconsole/processes/models.py:76
+msgid "The department responsible for this process."
+msgstr "Het organisatieonderdeel verantwoorelijk voor dit proces."
+
+#: src/beheerconsole/processes/models.py:82
+msgid "other departments"
+msgstr "andere organisatieonderdelen"
+
+#: src/beheerconsole/processes/models.py:83
+msgid "Other departments that may play a role in this process"
+msgstr "Andere organisatieonderdelen die eventueel een rol spelen in dit proces"
+
+#: src/beheerconsole/processes/models.py:92
+msgid "initiating processes"
+msgstr "initiërende processen"
+
+#: src/beheerconsole/processes/models.py:94
+msgid "The set of processes that may lead to this process being started."
+msgstr "De verzameling processen die mogelijks dit proces kunnen starten."
+
+#: src/beheerconsole/processes/models.py:101
+msgid "Set of applications used to handle this process"
+msgstr "De verzameling van applicaties betrokken in de afhandeling van dit proces"
+
+#: src/beheerconsole/processes/models.py:107
+msgid "personal data"
+msgstr "persoonlijke gegevens"
+
+#: src/beheerconsole/processes/models.py:109
+msgid "Does personal data end up in the process?"
+msgstr "Worden er persoonlijke gegevens verwerkt in dit proces?"
+
+#: src/beheerconsole/processes/models.py:112
+msgid "process status"
+msgstr "processtatus"
+
+#: src/beheerconsole/processes/models.py:118
+msgid "deactivation date"
+msgstr "datum van deactivatie"
+
+#: src/beheerconsole/processes/models.py:122
+msgid ""
+"Date when this process became deactivated/historical. Leave blank for 'in "
+"production' processes."
+msgstr ""
+"Datum van deactivatie/waarop het proces historisch werd. Laat dit veld leeg "
+"indien het proces 'in productie' is."
+
+#: src/beheerconsole/processes/models.py:127
+msgid "zaaktype"
+msgstr "zaaktype"
+
+#: src/beheerconsole/processes/models.py:130
+msgid "Zaaktype in the Catalogi API."
+msgstr "Zaaktype in de Catalogi API."
+
+#: src/beheerconsole/processes/models.py:138
+msgid "zaaktype owner"
+msgstr "eigenaar zaaktype"
+
+#: src/beheerconsole/processes/models.py:139
+msgid "The department owning the zaaktype."
+msgstr "Het organisatieonderdeel die eigenaar is van het zaaktype."
+
+#: src/beheerconsole/processes/models.py:142
+msgid "risk level"
+msgstr "risiconiveau"
+
+#: src/beheerconsole/processes/models.py:152
+msgid "Location digital"
+msgstr "Digitale vindplaats"
+
+#: src/beheerconsole/processes/models.py:161
+msgid "Location analogue"
+msgstr "Analoge vindplaats"
+
+#: src/beheerconsole/processes/models.py:166
+msgid "process"
+msgstr "proces"
+
+#: src/beheerconsole/processes/models.py:167
+msgid "processes"
+msgstr "processen"
+
+#: src/beheerconsole/processes/models.py:221
+msgid "storage type"
+msgstr "type vindplaats"
+
+#: src/beheerconsole/processes/models.py:228
+msgid "storage location"
+msgstr "vindplaats"
+
+#: src/beheerconsole/processes/models.py:229
+msgid "storage locations"
+msgstr "vindplaatsen"
+
+#: src/beheerconsole/processes/templates/processes/process_detail.html:8
+#: src/beheerconsole/processes/templates/processes/process_list.html:7
+#: src/beheerconsole/processes/templates/processes/process_list.html:14
+#: src/beheerconsole/processes/templates/processes/process_so.html:8
+#: src/beheerconsole/templates/index.html:24
+msgid "Processes"
+msgstr "Processen"
+
+#: src/beheerconsole/processes/templates/processes/process_detail.html:19
+msgid "Process details"
+msgstr "Procesdetails"
+
+#: src/beheerconsole/processes/templates/processes/process_detail.html:22
+msgid "View Systematic Overview"
+msgstr "Bekijk het Systematisch Overzicht"
+
+#: src/beheerconsole/processes/templates/processes/process_detail.html:33
+#: src/beheerconsole/processes/templates/processes/process_so.html:41
+#, python-format
+msgid ""
+"\n"
+"                    Process &lsquo;%(name)s&rsquo;\n"
+"                "
+msgstr ""
+"\n"
+"                    Proces &lsquo;%(name)s&rsquo;\n"
+"                "
+
+#: src/beheerconsole/processes/templates/processes/process_detail.html:42
+#, python-format
+msgid ""
+"\n"
+"                    Department &lsquo;%(name)s&rsquo;\n"
+"                "
+msgstr ""
+"\n"
+"                    Organisatieonderdeel &lsquo;%(name)s&rsquo;\n"
+"                "
+
+#: src/beheerconsole/processes/templates/processes/process_detail.html:54
+msgid "Relations with other processes"
+msgstr "Relaties met andere processen"
+
+#: src/beheerconsole/processes/templates/processes/process_detail.html:65
+msgid "No initiating processes"
+msgstr "Geen initiërende processen"
+
+#: src/beheerconsole/processes/templates/processes/process_detail.html:83
+msgid "Initiates no other processes"
+msgstr "Initieert geen andere processen"
+
+#: src/beheerconsole/processes/templates/processes/process_detail.html:117
+msgid "BPMN schema"
+msgstr "BPMN schema"
+
+#: src/beheerconsole/processes/templates/processes/process_detail.html:119
+#, python-format
+msgid "Activiti process: <code>%(key)s (version %(version)s)</code>"
+msgstr "Activiti proces: <code>%(key)s (versie %(version)s)</code>"
+
+#: src/beheerconsole/processes/templates/processes/process_detail.html:123
+#, python-format
+msgid "Camunda process: <code>%(key)s (version %(version)s)</code>"
+msgstr "Camunda proces: <code>%(key)s (versie %(version)s)</code>"
+
+#: src/beheerconsole/processes/templates/processes/process_list.html:13
+msgid "Deployed processes in the organization"
+msgstr "Processen in de organisatie"
+
+#: src/beheerconsole/processes/templates/processes/process_list.html:16
+msgid ""
+"On this page you see a list of processes as they are handled within the "
+"organization. You can use the filters on the right hand side to filter by "
+"the department owning the process."
+msgstr ""
+"Op deze pagina zie je een lijst van processen zoals deze in gebruik zijn "
+"binnen de organisatie. Je kan de filters aan de rechterzijde gebruiken om "
+"processen te filteren op het organisatieonderdeel dat ervoor verantwoorelijk is."
+
+#: src/beheerconsole/processes/templates/processes/process_list.html:31
+#, python-format
+msgid "Department: %(dep)s"
+msgstr "Organisatieonderdeel: %(dep)s"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:27
+msgid "The systematic overview describes meta-information of processes."
+msgstr "Het Systematisch Overzicht beschrijft meta-gegevens van processen."
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:49
+msgid "Status"
+msgstr "Status"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:51
+msgid "Processing of personal data?"
+msgstr "Verwerking van persoonlijke gegevens?"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:57
+msgid "Process status"
+msgstr "Processtatus"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:61
+msgid "Production status"
+msgstr "Productiestatus"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:63
+msgid "In production"
+msgstr "In productie"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:65
+#, python-format
+msgid "Deactivated/historical since %(h_date)s"
+msgstr "Gedeactiveerd/historisch sinds %(h_date)s"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:71
+msgid "Risk level"
+msgstr "Risiconiveau"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:79
+msgid "Ownership"
+msgstr "Eigenaars"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:82
+msgid "Process owner"
+msgstr "Proceseigenaar"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:86
+msgid "Zaaktype owner"
+msgstr "Zaaktype-eigenaar"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:94
+msgid "Zaaktype information & archiving"
+msgstr "Zaaktype- en archiefinformatie"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:97
+msgid "Zaaktype"
+msgstr "Zaaktype"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:99
+msgid "Zaaktype under development"
+msgstr "Zaaktype in ontwikkeling"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:104
+msgid "Procestype selectielijst"
+msgstr "Selectielijst 2017 procestype"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:108
+msgid "Number process selectielijst"
+msgstr "Nummer van het proces in de selectielijst"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:113
+msgid "Resultaattypen"
+msgstr "Resultaattypen"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:118
+msgid "Description"
+msgstr "Omschrijving"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:121
+#: src/beheerconsole/processes/templates/processes/process_so.html:127
+msgid "Action"
+msgstr "Actie"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:124
+#: src/beheerconsole/processes/templates/processes/process_so.html:130
+msgid "Term"
+msgstr "Termijn"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:126
+#: src/beheerconsole/processes/templates/processes/process_so.html:129
+msgid "Selectielijstklasse value"
+msgstr "Waarde van de Selectielijstklasse"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:132
+msgid "Divergent from selectielijst?"
+msgstr "Afwijkend van de selectielijst?"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:133
+msgid "Divergent?"
+msgstr "Afwijkend?"
+
+#: src/beheerconsole/processes/templates/processes/process_so.html:170
+msgid "Archive locations"
+msgstr "Vindplaatsen"
+
+#: src/beheerconsole/processes/templatetags/processes.py:15
+#, python-brace-format
+msgid "{years} year"
+msgid_plural "{years} years"
+msgstr[0] "{years} jaar"
+msgstr[1] "{years} jaar"
+
+#: src/beheerconsole/processes/templatetags/processes.py:22
+#, python-brace-format
+msgid "{months} month"
+msgid_plural "{months} months"
+msgstr[0] "{months} maand"
+msgstr[1] "{months} maanden"
+
+#: src/beheerconsole/processes/templatetags/processes.py:29
+#, python-brace-format
+msgid "{days} day"
+msgid_plural "{days} days"
+msgstr[0] "{days} dag"
+msgstr[1] "{days} dagen"
+
+#: src/beheerconsole/processes/templatetags/processes.py:36
+#, python-brace-format
+msgid "{hours} hour"
+msgid_plural "{hours} hours"
+msgstr[0] "{hours} uur"
+msgstr[1] "{hours} uren"
+
+#: src/beheerconsole/processes/templatetags/processes.py:44
+#, python-brace-format
+msgid "{minutes} minute"
+msgid_plural "{minutes} minutes"
+msgstr[0] "{minutes} minuut"
+msgstr[1] "{minutes} minuten"
+
+#: src/beheerconsole/processes/templatetags/processes.py:51
+#, python-brace-format
+msgid "{seconds} second"
+msgid_plural "{seconds} seconds"
+msgstr[0] "{seconds} seconde"
+msgstr[1] "{seconds} seconden"
+
+#: src/beheerconsole/processes/templatetags/processes.py:63
+#, python-brace-format
+msgid "{first} and {last}"
+msgstr "{first} en {last}"
+
+#: src/beheerconsole/templates/admin/base_site.html:4
+#: src/beheerconsole/templates/admin/base_site.html:7
+msgid "Administration"
+msgstr "Beheer"
+
+#: src/beheerconsole/templates/includes/filters.html:3
+msgid "Filter"
+msgstr "Filter"
+
+#: src/beheerconsole/templates/includes/filters.html:8
+msgid "Submit"
+msgstr "OK"
+
+#: src/beheerconsole/templates/index.html:7
+msgid "Manage processes and applications"
+msgstr "Beheer processen en applicaties"
+
+#: src/beheerconsole/templates/index.html:8
+msgid "Beheerconsole"
+msgstr "Beheerconsole"
+
+#: src/beheerconsole/templates/index.html:10
+msgid ""
+"The beheerconsole gives insight into the deployed processes within the "
+"organization and the applications that facilitate this. Processes and "
+"applications are related to each other. <br> Please choose your perspective."
+msgstr ""
+"De beheerconsole geeft inzicht in de processen die toegepast worden binnen de "
+"organisatie en de applicaties die hiervoor gebruikt worden. Processen en applicaties "
+"zijn nauw gekoppeld. <br> Kies je invalshoek."
+
+#: src/beheerconsole/templates/samples/pager.html:8
+#: src/beheerconsole/templates/samples/pager.html:10
+msgid "Previous"
+msgstr "Vorige"
+
+#: src/beheerconsole/templates/samples/pager.html:16
+#: src/beheerconsole/templates/samples/pager.html:18
+msgid "Next"
+msgstr "Volgende"
+
+#: src/ddt_api_calls/panels.py:76
+msgid "API calls"
+msgstr "API calls"
+
+#: src/ddt_api_calls/panels.py:91
+#, python-brace-format
+msgid "1 API call made in {duration}ms"
+msgid_plural "{n} API calls made in {duration}ms"
+msgstr[0] "{n} API call gemaakt in {duration}ms"
+msgstr[1] "{n} API calls gemaakt in {duration}ms"
+
+#: src/ddt_api_calls/templates/ddt_api_calls/requests.html:6
+msgid "Method"
+msgstr "Method"
+
+#: src/ddt_api_calls/templates/ddt_api_calls/requests.html:7
+msgid "URL"
+msgstr "URL"
+
+#: src/ddt_api_calls/templates/ddt_api_calls/requests.html:8
+msgid "Time (ms)"
+msgstr "Tijd (ms)"
+
+#: src/ddt_api_calls/templates/ddt_api_calls/requests.html:9
+msgid "Status code"
+msgstr "Statuscode"
