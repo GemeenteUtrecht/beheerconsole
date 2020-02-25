@@ -130,6 +130,26 @@ class Process(models.Model):
         _("risk level"), max_length=50, choices=RiskLevels.choices, blank=True
     )
 
+    # locations of archive
+    location_digital = models.ForeignKey(
+        "StorageLocation",
+        on_delete=models.PROTECT,
+        limit_choices_to={"storage_type": StorageTypes.digital},
+        blank=True,
+        null=True,
+        verbose_name=_("Location digital"),
+        related_name="+",
+    )
+    location_analogue = models.ForeignKey(
+        "StorageLocation",
+        on_delete=models.PROTECT,
+        limit_choices_to={"storage_type": StorageTypes.analogue},
+        blank=True,
+        null=True,
+        verbose_name=_("Location analogue"),
+        related_name="+",
+    )
+
     class Meta:
         verbose_name = _("process")
         verbose_name_plural = _("processes")
@@ -198,48 +218,3 @@ class StorageLocation(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class Storage(models.Model):
-    process = models.ForeignKey(
-        Process, verbose_name=_("process"), on_delete=models.CASCADE
-    )
-    start = models.DateField(
-        _("start"),
-        blank=True,
-        null=True,
-        help_text=_("When did this become the primary storage?"),
-    )
-    end = models.DateField(
-        _("end"),
-        blank=True,
-        null=True,
-        help_text=_("When was this no longer the primary storage?"),
-    )
-    location_digital = models.ForeignKey(
-        StorageLocation,
-        on_delete=models.PROTECT,
-        limit_choices_to={"storage_type": StorageTypes.digital},
-        blank=True,
-        null=True,
-        verbose_name=_("Location digital"),
-        related_name="analogue_storages",
-    )
-    location_analogue = models.ForeignKey(
-        StorageLocation,
-        on_delete=models.PROTECT,
-        limit_choices_to={"storage_type": StorageTypes.analogue},
-        blank=True,
-        null=True,
-        verbose_name=_("Location analogue"),
-        related_name="digital_storages",
-    )
-
-    class Meta:
-        verbose_name = _("process storage")
-        verbose_name_plural = _("process storages")
-
-    def __str__(self):
-        start = self.start.strftime("%Y-%M-%d") if self.start else _("(unset)")
-        end = self.end.strftime("%Y-%M-%d") if self.end else _("(unset)")
-        return _("From {start} to {end}").format(start=start, end=end)

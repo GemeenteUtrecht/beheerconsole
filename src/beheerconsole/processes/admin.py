@@ -10,13 +10,7 @@ from django_activiti.admin import ActivitiFieldsMixin
 from zgw_consumers.admin import ListZaaktypenMixin
 
 from ..camunda.utils import get_processes
-from .models import Department, Process, Storage, StorageLocation
-
-
-class StorageInline(admin.TabularInline):
-    model = Storage
-    ordering = ("start", "end")
-    raw_id_fields = ("location_digital", "location_analogue")
+from .models import Department, Process, StorageLocation
 
 
 @admin.register(Department)
@@ -54,6 +48,8 @@ class ProcessAdmin(ActivitiFieldsMixin, ListZaaktypenMixin, admin.ModelAdmin):
                     "process_status",
                     "deactivation_date",
                     "risk_level",
+                    "location_digital",
+                    "location_analogue",
                 )
             },
         ),
@@ -61,7 +57,6 @@ class ProcessAdmin(ActivitiFieldsMixin, ListZaaktypenMixin, admin.ModelAdmin):
         (_("Misc3"), {"fields": ()}),
     )
     zaaktype_fields = ("zaaktype",)
-    inlines = [StorageInline]
 
     def formfield_for_dbfield(self, db_field, request, **kwargs):
         if db_field.name == "camunda_id":
@@ -100,11 +95,3 @@ class StorageLocationAdmin(admin.ModelAdmin):
     list_filter = ("storage_type",)
     search_fields = ("name",)
     ordering = ("name",)
-
-
-@admin.register(Storage)
-class StorageAdmin(admin.ModelAdmin):
-    list_display = ("process", "start", "end", "location_digital", "location_analogue")
-    search_fields = ("process__name",)
-    date_hierarchy = "start"
-    list_filter = ("start", "end")
