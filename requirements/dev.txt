@@ -5,90 +5,90 @@
 #    pip-compile --no-index --output-file=requirements/dev.txt requirements/ci.txt requirements/dev.in
 #
 alabaster==0.7.12         # via sphinx
-amqp==2.5.2               # via -r requirements/ci.txt (line 7), kombu
+amqp==2.5.2               # via -r requirements/ci.txt, kombu
 appdirs==1.4.3            # via black
-asgiref==3.2.3            # via -r requirements/ci.txt (line 8), django
+asgiref==3.2.3            # via -r requirements/ci.txt, django
 attrs==19.3.0             # via black
 babel==2.7.0              # via sphinx
-beautifulsoup4==4.8.1     # via -r requirements/ci.txt (line 9), webtest
-billiard==3.6.1.0         # via -r requirements/ci.txt (line 10), celery
-black==19.10b0            # via -r requirements/dev.in (line 6)
-bumpversion==0.5.3        # via -r requirements/dev.in (line 3)
-celery==4.4.0             # via -r requirements/ci.txt (line 11), django-camunda
-certifi==2019.11.28       # via -r requirements/ci.txt (line 12), requests
-chardet==3.0.4            # via -r requirements/ci.txt (line 13), requests
+beautifulsoup4==4.8.1     # via -r requirements/ci.txt, webtest
+billiard==3.6.1.0         # via -r requirements/ci.txt, celery
+black==19.10b0            # via -r requirements/dev.in
+bumpversion==0.5.3        # via -r requirements/dev.in
+celery==4.4.0             # via -r requirements/ci.txt, django-camunda
+certifi==2019.11.28       # via -r requirements/ci.txt, requests
+chardet==3.0.4            # via -r requirements/ci.txt, requests
 click==7.0                # via black, pip-tools
-coverage==4.5.4           # via -r requirements/ci.txt (line 14)
-django-activiti==0.1.2    # via -r requirements/ci.txt (line 15)
-django-appconf==1.0.3     # via -r requirements/ci.txt (line 16), django-axes
-django-axes==5.0.20       # via -r requirements/ci.txt (line 17)
-django-camunda==0.3.0     # via -r requirements/ci.txt (line 18)
-django-choices==1.7.1     # via -r requirements/ci.txt (line 19), zgw-consumers
-django-debug-toolbar==2.1  # via -r requirements/dev.in (line 10)
-django-extensions==2.2.5  # via -r requirements/dev.in (line 11)
-django-filter==2.2.0      # via -r requirements/ci.txt (line 20)
-django-ipware==2.1.0      # via -r requirements/ci.txt (line 21), django-axes
-django-redis==4.11.0      # via -r requirements/ci.txt (line 22)
-django-relativedelta==1.1.0  # via -r requirements/ci.txt (line 23), zgw-consumers
-django-sniplates==0.7.0   # via -r requirements/ci.txt (line 24)
-django-solo==1.1.3        # via -r requirements/ci.txt (line 25), django-activiti, django-camunda, zgw-consumers
-django-treebeard==4.3.1   # via -r requirements/ci.txt (line 26)
-django-webtest==1.9.7     # via -r requirements/ci.txt (line 27)
-django==3.0.3             # via -r requirements/ci.txt (line 28), django-activiti, django-appconf, django-axes, django-camunda, django-choices, django-debug-toolbar, django-filter, django-redis, django-relativedelta, django-sniplates, django-treebeard, nlx-url-rewriter, zgw-consumers
+coverage==4.5.4           # via -r requirements/ci.txt
+django-activiti==0.1.2    # via -r requirements/ci.txt
+django-appconf==1.0.3     # via -r requirements/ci.txt, django-axes
+django-axes==5.0.20       # via -r requirements/ci.txt
+django-camunda==0.4.0     # via -r requirements/ci.txt
+django-choices==1.7.1     # via -r requirements/ci.txt, zgw-consumers
+django-debug-toolbar==2.1  # via -r requirements/dev.in
+django-extensions==2.2.5  # via -r requirements/dev.in
+django-filter==2.2.0      # via -r requirements/ci.txt
+django-ipware==2.1.0      # via -r requirements/ci.txt, django-axes
+django-redis==4.11.0      # via -r requirements/ci.txt
+django-relativedelta==1.1.0  # via -r requirements/ci.txt, zgw-consumers
+django-sniplates==0.7.0   # via -r requirements/ci.txt
+django-solo==1.1.3        # via -r requirements/ci.txt, django-activiti, django-camunda, zgw-consumers
+django-treebeard==4.3.1   # via -r requirements/ci.txt
+django-webtest==1.9.7     # via -r requirements/ci.txt
+django==3.0.3             # via -r requirements/ci.txt, django-activiti, django-appconf, django-axes, django-camunda, django-choices, django-debug-toolbar, django-filter, django-redis, django-relativedelta, django-sniplates, django-treebeard, nlx-url-rewriter, zgw-consumers
 docutils==0.15.2          # via sphinx
-factory-boy==2.12.0       # via -r requirements/ci.txt (line 29)
-faker==2.0.4              # via -r requirements/ci.txt (line 30), factory-boy
-freezegun==0.3.12         # via -r requirements/ci.txt (line 31)
-gemma-zds-client==0.13.0  # via -r requirements/ci.txt (line 32), zgw-consumers
-idna==2.8                 # via -r requirements/ci.txt (line 33), requests
+factory-boy==2.12.0       # via -r requirements/ci.txt
+faker==2.0.4              # via -r requirements/ci.txt, factory-boy
+freezegun==0.3.12         # via -r requirements/ci.txt
+gemma-zds-client==0.13.0  # via -r requirements/ci.txt, zgw-consumers
+idna==2.8                 # via -r requirements/ci.txt, requests
 imagesize==1.1.0          # via sphinx
-inflection==0.3.1         # via -r requirements/ci.txt (line 34), django-activiti, django-camunda
-isort==4.3.21             # via -r requirements/dev.in (line 7)
+inflection==0.3.1         # via -r requirements/ci.txt, django-activiti, django-camunda
+isort==4.3.21             # via -r requirements/dev.in
 jinja2==2.10.3            # via sphinx
-kombu==4.6.7              # via -r requirements/ci.txt (line 35), celery
+kombu==4.6.7              # via -r requirements/ci.txt, celery
 markupsafe==1.1.1         # via jinja2
-nlx-url-rewriter==0.1.2   # via -r requirements/ci.txt (line 36)
+nlx-url-rewriter==0.1.2   # via -r requirements/ci.txt
 packaging==19.2           # via sphinx
 pathspec==0.6.0           # via black
-pillow==6.2.1             # via -r requirements/ci.txt (line 37)
-pip-tools==4.3.0          # via -r requirements/dev.in (line 2)
-psycopg2==2.8.4           # via -r requirements/ci.txt (line 38)
+pillow==6.2.1             # via -r requirements/ci.txt
+pip-tools==4.5.1          # via -r requirements/dev.in
+psycopg2==2.8.4           # via -r requirements/ci.txt
 pygments==2.5.2           # via sphinx
-pyjwt==1.7.1              # via -r requirements/ci.txt (line 39), gemma-zds-client
+pyjwt==1.7.1              # via -r requirements/ci.txt, gemma-zds-client
 pyparsing==2.4.5          # via packaging
-python-dateutil==2.8.1    # via -r requirements/ci.txt (line 40), django-camunda, django-relativedelta, faker, freezegun
-python-decouple==3.3      # via -r requirements/ci.txt (line 41)
-python-dotenv==0.10.3     # via -r requirements/ci.txt (line 42)
-pytz==2019.3              # via -r requirements/ci.txt (line 43), babel, celery, django
-pyyaml==5.3               # via -r requirements/ci.txt (line 44), gemma-zds-client
-raven==6.10.0             # via -r requirements/ci.txt (line 45)
-redis==3.3.11             # via -r requirements/ci.txt (line 46), django-redis
+python-dateutil==2.8.1    # via -r requirements/ci.txt, django-camunda, django-relativedelta, faker, freezegun
+python-decouple==3.3      # via -r requirements/ci.txt
+python-dotenv==0.10.3     # via -r requirements/ci.txt
+pytz==2019.3              # via -r requirements/ci.txt, babel, celery, django
+pyyaml==5.3               # via -r requirements/ci.txt, gemma-zds-client
+raven==6.10.0             # via -r requirements/ci.txt
+redis==3.3.11             # via -r requirements/ci.txt, django-redis
 regex==2019.11.1          # via black
-requests-mock==1.7.0      # via -r requirements/ci.txt (line 47)
-requests==2.22.0          # via -r requirements/ci.txt (line 48), django-activiti, django-camunda, gemma-zds-client, requests-mock, sphinx
-six==1.13.0               # via -r requirements/ci.txt (line 49), django-appconf, django-choices, django-extensions, faker, freezegun, packaging, pip-tools, python-dateutil, requests-mock, webtest
+requests-mock==1.7.0      # via -r requirements/ci.txt
+requests==2.22.0          # via -r requirements/ci.txt, django-activiti, django-camunda, gemma-zds-client, requests-mock, sphinx
+six==1.13.0               # via -r requirements/ci.txt, django-appconf, django-choices, django-extensions, faker, freezegun, packaging, pip-tools, python-dateutil, requests-mock, webtest
 snowballstemmer==2.0.0    # via sphinx
-soupsieve==1.9.5          # via -r requirements/ci.txt (line 50), beautifulsoup4
-sphinx-rtd-theme==0.4.3   # via -r requirements/dev.in (line 15)
-sphinx==2.2.2             # via -r requirements/dev.in (line 14), sphinx-rtd-theme
+soupsieve==1.9.5          # via -r requirements/ci.txt, beautifulsoup4
+sphinx-rtd-theme==0.4.3   # via -r requirements/dev.in
+sphinx==2.2.2             # via -r requirements/dev.in, sphinx-rtd-theme
 sphinxcontrib-applehelp==1.0.1  # via sphinx
 sphinxcontrib-devhelp==1.0.1  # via sphinx
 sphinxcontrib-htmlhelp==1.0.2  # via sphinx
 sphinxcontrib-jsmath==1.0.1  # via sphinx
 sphinxcontrib-qthelp==1.0.2  # via sphinx
 sphinxcontrib-serializinghtml==1.1.3  # via sphinx
-sqlparse==0.3.0           # via -r requirements/ci.txt (line 51), django, django-debug-toolbar
-tblib==1.5.0              # via -r requirements/ci.txt (line 52)
-text-unidecode==1.3       # via -r requirements/ci.txt (line 53), faker
+sqlparse==0.3.0           # via -r requirements/ci.txt, django, django-debug-toolbar
+tblib==1.5.0              # via -r requirements/ci.txt
+text-unidecode==1.3       # via -r requirements/ci.txt, faker
 toml==0.10.0              # via black
 typed-ast==1.4.0          # via black
-urllib3==1.25.7           # via -r requirements/ci.txt (line 54), requests
-uwsgi==2.0.18             # via -r requirements/ci.txt (line 55)
-vine==1.3.0               # via -r requirements/ci.txt (line 56), amqp, celery
-waitress==1.4.3           # via -r requirements/ci.txt (line 57), webtest
-webob==1.8.5              # via -r requirements/ci.txt (line 58), webtest
-webtest==2.0.33           # via -r requirements/ci.txt (line 59), django-webtest
-zgw-consumers==0.6.0.dev0  # via -r requirements/ci.txt (line 60)
+urllib3==1.25.7           # via -r requirements/ci.txt, requests
+uwsgi==2.0.18             # via -r requirements/ci.txt
+vine==1.3.0               # via -r requirements/ci.txt, amqp, celery
+waitress==1.4.3           # via -r requirements/ci.txt, webtest
+webob==1.8.5              # via -r requirements/ci.txt, webtest
+webtest==2.0.33           # via -r requirements/ci.txt, django-webtest
+zgw-consumers==0.6.0.dev0  # via -r requirements/ci.txt
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
