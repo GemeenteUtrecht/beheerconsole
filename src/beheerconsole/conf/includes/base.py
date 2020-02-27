@@ -112,7 +112,6 @@ INSTALLED_APPS = [
     # Project applications.
     "beheerconsole.accounts",
     "beheerconsole.applications",
-    "beheerconsole.camunda",
     "beheerconsole.processes",
     "beheerconsole.nlx",
     "beheerconsole.utils",
