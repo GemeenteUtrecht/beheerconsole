@@ -20,9 +20,11 @@ from django_activiti.fields import (
     ProcessDefinitionField as ActivitiProcessDefinitionField,
 )
 from django_camunda.client import get_client_class as get_camunda_client_class
+from django_camunda.fields import (
+    ProcessDefinitionField as CamundaProcessDefinitionField,
+)
 from treebeard.mp_tree import MP_Node
 
-from ..camunda.models import CamundaBasicAuthConfig
 from .constants import ProcessStatusChoices, RiskLevels, StorageTypes
 
 
@@ -55,12 +57,7 @@ class Process(models.Model):
     name = models.CharField(
         _("name"), max_length=255, help_text=_("Human-friendly name."),
     )
-    camunda_id = models.CharField(
-        _("Camunda process"),
-        max_length=255,
-        help_text=_("Process definition ID in Camunda."),
-        blank=True,
-    )
+    camunda_id = CamundaProcessDefinitionField(_("Camunda process"), blank=True,)
     activiti_id = ActivitiProcessDefinitionField(_("Activiti process"), blank=True,)
 
     description = models.TextField(
@@ -206,10 +203,8 @@ class Process(models.Model):
             return xml_data
 
         if self.camunda_id:
-            client = get_camunda_client_class()(
-                config=CamundaBasicAuthConfig.get_solo()
-            )
-            response = client.request(f"process-definition/{self.camunda_id}/xml")
+            client = get_camunda_client_class()()
+            response = client.get(f"process-definition/{self.camunda_id}/xml")
             return response["bpmn20_xml"]
 
         return ""
