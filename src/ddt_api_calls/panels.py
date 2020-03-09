@@ -54,15 +54,17 @@ class PanelMocker(requests_mock.Mocker):
             finally:
                 requests.Session.get_adapter = real_get_adapter
 
+            req = next(r for r in self.request_history if r._request == request)
+
             try:
                 response = _original_send(session, request, **kwargs)
             except Exception:
                 raise
             else:
-                self.request_history[-1].status_code = response.status_code
+                req.status_code = response.status_code
             finally:
                 duration = (time.time() - start) * 1000  # duration in ms
-                self.request_history[-1].duration = int(duration)
+                req.duration = int(duration)
             return response
 
         requests.Session.send = _fake_send
