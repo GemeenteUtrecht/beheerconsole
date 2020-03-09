@@ -14,7 +14,7 @@
                 <tr class="{% cycle 'djDebugOdd' 'djDebugEven' %}">
                     <td>{{ request.method }}</td>
                     <td>{{ request.url }}</td>
-                    <td>{{ request.duration }}</td>
+                    <td>{{ request.timing.2 }}</td>
                     <td>{{ request.status_code }}</td>
                 </tr>
             {% endfor %}

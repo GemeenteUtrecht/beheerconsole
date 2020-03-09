@@ -63,8 +63,9 @@ class PanelMocker(requests_mock.Mocker):
             else:
                 req.status_code = response.status_code
             finally:
-                duration = (time.time() - start) * 1000  # duration in ms
-                req.duration = int(duration)
+                end = time.time()
+                duration = (end - start) * 1000
+                req.timing = (start, end, int(duration))
             return response
 
         requests.Session.send = _fake_send
@@ -88,7 +89,11 @@ class APICallsPanel(Panel):
     @property
     def nav_subtitle(self) -> str:
         num_calls = len(self.mocker.request_history)
-        total_time = sum(req.duration for req in self.mocker.request_history)
+
+        min_start = min(req.timing[0] for req in self.mocker.request_history)
+        max_end = max(req.timing[1] for req in self.mocker.request_history)
+        total_time = int((max_end - min_start) * 1000)
+
         return ngettext(
             "1 API call made in {duration}ms",
             "{n} API calls made in {duration}ms",
