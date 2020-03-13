@@ -9,9 +9,13 @@ asgiref==3.2.3            # via django
 billiard==3.6.1.0         # via celery
 celery==4.4.0             # via django-camunda
 certifi==2019.11.28       # via requests
+cffi==1.14.0              # via cryptography
 chardet==3.0.4            # via requests
+cryptography==2.8         # via django-auth-adfs
 django-activiti==0.1.3    # via -r requirements/base.in
 django-appconf==1.0.3     # via django-axes
+django-auth-adfs-db==0.1.1  # via -r requirements/base.in
+django-auth-adfs==1.3.1   # via django-auth-adfs-db
 django-axes==5.0.20       # via -r requirements/base.in
 django-camunda==0.4.0     # via -r requirements/base.in
 django-choices==1.7.1     # via zgw-consumers
@@ -20,9 +24,9 @@ django-ipware==2.1.0      # via django-axes
 django-redis==4.11.0      # via -r requirements/base.in
 django-relativedelta==1.1.0  # via zgw-consumers
 django-sniplates==0.7.0   # via -r requirements/base.in
-django-solo==1.1.3        # via django-activiti, django-camunda, zgw-consumers
+django-solo==1.1.3        # via django-activiti, django-auth-adfs-db, django-camunda, zgw-consumers
 django-treebeard==4.3.1   # via -r requirements/base.in
-django==3.0.3             # via -r requirements/base.in, django-activiti, django-appconf, django-axes, django-camunda, django-choices, django-filter, django-redis, django-relativedelta, django-sniplates, django-treebeard, nlx-url-rewriter, zgw-consumers
+django==3.0.3             # via -r requirements/base.in, django-activiti, django-appconf, django-auth-adfs, django-auth-adfs-db, django-axes, django-camunda, django-choices, django-filter, django-redis, django-relativedelta, django-sniplates, django-treebeard, nlx-url-rewriter, zgw-consumers
 gemma-zds-client==0.13.0  # via zgw-consumers
 idna==2.8                 # via requests
 inflection==0.3.1         # via django-activiti, django-camunda
@@ -30,7 +34,8 @@ kombu==4.6.7              # via celery
 nlx-url-rewriter==0.1.2   # via -r requirements/base.in
 pillow==6.2.1             # via -r requirements/base.in
 psycopg2==2.8.4           # via -r requirements/base.in
-pyjwt==1.7.1              # via gemma-zds-client
+pycparser==2.20           # via cffi
+pyjwt==1.7.1              # via django-auth-adfs, gemma-zds-client
 python-dateutil==2.8.1    # via django-camunda, django-relativedelta
 python-decouple==3.3      # via -r requirements/base.in
 python-dotenv==0.10.3     # via -r requirements/base.in
@@ -38,8 +43,8 @@ pytz==2019.3              # via -r requirements/base.in, celery, django
 pyyaml==5.3               # via gemma-zds-client
 raven==6.10.0             # via -r requirements/base.in
 redis==3.3.11             # via django-redis
-requests==2.22.0          # via django-activiti, django-camunda, gemma-zds-client
-six==1.13.0               # via django-appconf, django-choices, python-dateutil
+requests==2.22.0          # via django-activiti, django-auth-adfs, django-camunda, gemma-zds-client
+six==1.13.0               # via cryptography, django-appconf, django-choices, python-dateutil
 sqlparse==0.3.0           # via django
 urllib3==1.25.7           # via requests
 uwsgi==2.0.18             # via -r requirements/base.in
