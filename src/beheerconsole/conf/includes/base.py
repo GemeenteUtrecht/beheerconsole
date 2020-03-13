@@ -1,6 +1,8 @@
 import datetime
 import os
 
+from django.urls import reverse_lazy
+
 import raven
 
 from .environ import config
@@ -101,6 +103,8 @@ INSTALLED_APPS = [
     # Optional applications.
     "django.contrib.admin",
     # External applications.
+    "django_auth_adfs",
+    "django_auth_adfs_db",
     "axes",
     "sniplates",
     "django_activiti",
@@ -290,11 +294,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Allow logging in with both username+password and email+password
 AUTHENTICATION_BACKENDS = [
     "axes.backends.AxesBackend",
+    "django_auth_adfs_db.backends.AdfsAuthCodeBackend",
     "beheerconsole.accounts.backends.UserModelEmailBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
 
 SESSION_COOKIE_NAME = "beheerconsole_sessionid"
+
+LOGIN_URL = reverse_lazy("admin:login")
+LOGIN_REDIRECT_URL = reverse_lazy("index")
 
 #
 # SECURITY settings
@@ -344,6 +352,11 @@ AXES_ONLY_USER_FAILURES = (
 AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP = (
     False  # Default: False (you might want to block on username and IP)
 )
+
+#
+# DJANGO AUTH ADFS
+#
+AUTH_ADFS = {"SETTINGS_CLASS": "django_auth_adfs_db.settings.Settings"}
 
 #
 # RAVEN/SENTRY - error monitoring
