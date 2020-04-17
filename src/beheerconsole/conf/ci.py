@@ -23,8 +23,3 @@ ENVIRONMENT = "CI"
 # Django-axes
 #
 AXES_BEHIND_REVERSE_PROXY = False
-
-#
-# Open Zaak specific settings
-#
-NOTIFICATIONS_DISABLED = True

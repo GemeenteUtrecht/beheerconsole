@@ -90,12 +90,9 @@ class APICallsPanel(Panel):
     def nav_subtitle(self) -> str:
         num_calls = len(self.mocker.request_history)
 
-        if num_calls:
-            min_start = min(req.timing[0] for req in self.mocker.request_history)
-            max_end = max(req.timing[1] for req in self.mocker.request_history)
-            total_time = int((max_end - min_start) * 1000)
-        else:
-            total_time = 0
+        min_start = min(req.timing[0] for req in self.mocker.request_history)
+        max_end = max(req.timing[1] for req in self.mocker.request_history)
+        total_time = int((max_end - min_start) * 1000)
 
         return ngettext(
             "1 API call made in {duration}ms",
