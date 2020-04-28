@@ -1,3 +1,5 @@
+from typing import Optional
+
 from django.template import Library
 from django.utils.translation import gettext as _, ngettext
 
@@ -7,7 +9,10 @@ register = Library()
 
 
 @register.filter
-def duration(rel_delta: relativedelta) -> str:
+def duration(rel_delta: Optional[relativedelta]) -> str:
+    if rel_delta is None:
+        return _("n/a")
+
     bits = []
 
     if rel_delta.years:
