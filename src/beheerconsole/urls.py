@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 from django.views.generic.base import TemplateView
@@ -10,6 +11,11 @@ handler500 = "beheerconsole.utils.views.server_error"
 admin.site.site_header = "beheerconsole admin"
 admin.site.site_title = "beheerconsole admin"
 admin.site.index_title = "Welcome to the beheerconsole admin"
+
+
+class IndexView(LoginRequiredMixin, TemplateView):
+    template_name = "index.html"
+
 
 urlpatterns = [
     # url(r'^admin_tools/', include('admin_tools.urls')),
@@ -36,7 +42,7 @@ urlpatterns = [
     ),
     path("adfs/", include("django_auth_adfs.urls")),
     # Simply show the master template.
-    path(r"", TemplateView.as_view(template_name="index.html"), name="index"),
+    path(r"", IndexView.as_view(), name="index"),
     path("processes/", include("beheerconsole.processes.urls")),
     path("software/", include("beheerconsole.applications.urls")),
 ]

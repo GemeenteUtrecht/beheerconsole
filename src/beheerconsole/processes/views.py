@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
 from django.views import View
 from django.views.generic import DetailView
@@ -9,13 +10,13 @@ from .models import Process
 from .service import load_zaaktype
 
 
-class ProcessListView(FilterView):
+class ProcessListView(LoginRequiredMixin, FilterView):
     model = Process
     template_name = "processes/process_list.html"
     filterset_class = ProcessFilter
 
 
-class ProcessDetailView(DetailView):
+class ProcessDetailView(LoginRequiredMixin, DetailView):
     model = Process
     queryset = Process.objects.select_related(
         "department", "location_digital", "location_analogue", "zaaktype_owner",
@@ -23,7 +24,7 @@ class ProcessDetailView(DetailView):
     template_name = "processes/process_detail.html"
 
 
-class ProcessBpmnView(View):
+class ProcessBpmnView(LoginRequiredMixin, View):
     def get(self, request, pk):
         process = Process.objects.get(pk=pk)
         return HttpResponse(process.xml(), content_type="text/xml")

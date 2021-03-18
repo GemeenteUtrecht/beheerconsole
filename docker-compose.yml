@@ -13,6 +13,7 @@ services:
 
   web:
     build: .
+    image: scrumteamzgw/beheerconsole:${TAG:-latest}
     environment:
       - DJANGO_SETTINGS_MODULE=beheerconsole.conf.docker
       - SECRET_KEY=${SECRET_KEY:-qz#7v(_8ems7)3rp)u0pxi_43x2v6t!)8w6rc9yv*=sfq_558k}
