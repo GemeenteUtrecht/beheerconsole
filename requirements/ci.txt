@@ -85,7 +85,7 @@ django-treebeard==4.3.1
     # via -r requirements/base.txt
 django-webtest==1.9.7
     # via -r requirements/test-tools.in
-django==3.0.3
+django==3.0.12
     # via
     #   -r requirements/base.txt
     #   django-activiti
