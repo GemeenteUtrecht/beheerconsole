@@ -6,7 +6,7 @@
 #
 amqp==2.5.2
     # via kombu
-asgiref==3.2.3
+asgiref==3.3.4
     # via django
 billiard==3.6.1.0
     # via celery
@@ -18,7 +18,7 @@ cffi==1.14.0
     # via cryptography
 chardet==3.0.4
     # via requests
-cryptography==2.8
+cryptography==3.4.7
     # via django-auth-adfs
 django-activiti==0.1.3
     # via -r requirements/base.in
@@ -52,7 +52,7 @@ django-solo==1.1.3
     #   zgw-consumers
 django-treebeard==4.3.1
     # via -r requirements/base.in
-django==3.0.3
+django==3.0.14
     # via
     #   -r requirements/base.in
     #   django-activiti
@@ -81,7 +81,7 @@ kombu==4.6.7
     # via celery
 nlx-url-rewriter==0.1.2
     # via -r requirements/base.in
-pillow==6.2.1
+pillow==8.2.0
     # via -r requirements/base.in
 psycopg2==2.8.4
     # via -r requirements/base.in
@@ -104,7 +104,7 @@ pytz==2019.3
     #   -r requirements/base.in
     #   celery
     #   django
-pyyaml==5.3
+pyyaml==5.4.1
     # via gemma-zds-client
 raven==6.10.0
     # via -r requirements/base.in
@@ -118,7 +118,6 @@ requests==2.22.0
     #   gemma-zds-client
 six==1.13.0
     # via
-    #   cryptography
     #   django-appconf
     #   django-choices
     #   python-dateutil

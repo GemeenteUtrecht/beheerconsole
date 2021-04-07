@@ -12,7 +12,7 @@ amqp==2.5.2
     #   kombu
 appdirs==1.4.3
     # via black
-asgiref==3.2.3
+asgiref==3.3.4
     # via
     #   -r requirements/ci.txt
     #   django
@@ -52,7 +52,7 @@ click==7.1.2
     #   pip-tools
 coverage==4.5.4
     # via -r requirements/ci.txt
-cryptography==2.8
+cryptography==3.4.7
     # via
     #   -r requirements/ci.txt
     #   django-auth-adfs
@@ -105,7 +105,7 @@ django-treebeard==4.3.1
     # via -r requirements/ci.txt
 django-webtest==1.9.7
     # via -r requirements/ci.txt
-django==3.0.3
+django==3.0.14
     # via
     #   -r requirements/ci.txt
     #   django-activiti
@@ -150,7 +150,7 @@ inflection==0.3.1
     #   django-camunda
 isort==5.8.0
     # via -r requirements/dev.in
-jinja2==2.10.3
+jinja2==2.11.3
     # via sphinx
 kombu==4.6.7
     # via
@@ -168,7 +168,7 @@ pathspec==0.6.0
     # via black
 pep517==0.10.0
     # via pip-tools
-pillow==6.2.1
+pillow==8.2.0
     # via -r requirements/ci.txt
 pip-tools==6.0.1
     # via -r requirements/dev.in
@@ -178,7 +178,7 @@ pycparser==2.20
     # via
     #   -r requirements/ci.txt
     #   cffi
-pygments==2.5.2
+pygments==2.8.1
     # via sphinx
 pyjwt==1.7.1
     # via
@@ -204,7 +204,7 @@ pytz==2019.3
     #   babel
     #   celery
     #   django
-pyyaml==5.3
+pyyaml==5.4.1
     # via
     #   -r requirements/ci.txt
     #   gemma-zds-client
@@ -230,7 +230,6 @@ requests==2.22.0
 six==1.13.0
     # via
     #   -r requirements/ci.txt
-    #   cryptography
     #   django-appconf
     #   django-choices
     #   django-extensions

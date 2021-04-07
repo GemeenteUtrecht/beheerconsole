@@ -8,7 +8,7 @@ amqp==2.5.2
     # via
     #   -r requirements/base.txt
     #   kombu
-asgiref==3.2.3
+asgiref==3.3.4
     # via
     #   -r requirements/base.txt
     #   django
@@ -36,7 +36,7 @@ chardet==3.0.4
     #   requests
 coverage==4.5.4
     # via -r requirements/test-tools.in
-cryptography==2.8
+cryptography==3.4.7
     # via
     #   -r requirements/base.txt
     #   django-auth-adfs
@@ -85,7 +85,7 @@ django-treebeard==4.3.1
     # via -r requirements/base.txt
 django-webtest==1.9.7
     # via -r requirements/test-tools.in
-django==3.0.3
+django==3.0.14
     # via
     #   -r requirements/base.txt
     #   django-activiti
@@ -127,7 +127,7 @@ kombu==4.6.7
     #   celery
 nlx-url-rewriter==0.1.2
     # via -r requirements/base.txt
-pillow==6.2.1
+pillow==8.2.0
     # via -r requirements/base.txt
 psycopg2==2.8.4
     # via -r requirements/base.txt
@@ -156,7 +156,7 @@ pytz==2019.3
     #   -r requirements/base.txt
     #   celery
     #   django
-pyyaml==5.3
+pyyaml==5.4.1
     # via
     #   -r requirements/base.txt
     #   gemma-zds-client
@@ -179,7 +179,6 @@ requests==2.22.0
 six==1.13.0
     # via
     #   -r requirements/base.txt
-    #   cryptography
     #   django-appconf
     #   django-choices
     #   faker
