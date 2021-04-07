@@ -19,7 +19,10 @@ class ProcessListView(LoginRequiredMixin, FilterView):
 class ProcessDetailView(LoginRequiredMixin, DetailView):
     model = Process
     queryset = Process.objects.select_related(
-        "department", "location_digital", "location_analogue", "zaaktype_owner",
+        "department",
+        "location_digital",
+        "location_analogue",
+        "zaaktype_owner",
     )
     template_name = "processes/process_detail.html"
 

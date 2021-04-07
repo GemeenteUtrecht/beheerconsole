@@ -9,5 +9,8 @@ class ProcessesConfig(AppConfig):
     def ready(self):
         Client = get_client_class()
         Client.load_config(
-            selectielijst={"scheme": "https", "host": "selectielijst.openzaak.nl",}
+            selectielijst={
+                "scheme": "https",
+                "host": "selectielijst.openzaak.nl",
+            }
         )

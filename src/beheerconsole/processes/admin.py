@@ -36,9 +36,27 @@ class ProcessAdmin(
         "applications",
     )
     fieldsets = (
-        (None, {"fields": ("name", "description", "department", "other_departments",)}),
+        (
+            None,
+            {
+                "fields": (
+                    "name",
+                    "description",
+                    "department",
+                    "other_departments",
+                )
+            },
+        ),
         (_("Relations"), {"fields": ("initiating_processes", "applications")}),
-        (_("Process engine"), {"fields": ("camunda_id", "activiti_id",)}),
+        (
+            _("Process engine"),
+            {
+                "fields": (
+                    "camunda_id",
+                    "activiti_id",
+                )
+            },
+        ),
         (
             _("Systematic overview"),
             {

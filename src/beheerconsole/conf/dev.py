@@ -31,13 +31,21 @@ LOGGING["loggers"].update(
             "level": "DEBUG",
             "propagate": True,
         },
-        "django": {"handlers": ["console"], "level": "DEBUG", "propagate": True,},
+        "django": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+            "propagate": True,
+        },
         "django.db.backends": {
             "handlers": ["django"],
             "level": "DEBUG",
             "propagate": False,
         },
-        "performance": {"handlers": ["console"], "level": "INFO", "propagate": True,},
+        "performance": {
+            "handlers": ["console"],
+            "level": "INFO",
+            "propagate": True,
+        },
         #
         # See: https://code.djangoproject.com/ticket/30554
         # Autoreload logs excessively, turn it down a bit.
@@ -84,8 +92,12 @@ DEBUG_TOOLBAR_PANELS = [
 # in memory cache and django-axes don't get along.
 # https://django-axes.readthedocs.io/en/latest/configuration.html#known-configuration-problems
 CACHES = {
-    "default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache",},
-    "axes_cache": {"BACKEND": "django.core.cache.backends.dummy.DummyCache",},
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+    },
+    "axes_cache": {
+        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+    },
 }
 
 AXES_CACHE = "axes_cache"

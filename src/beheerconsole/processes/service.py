@@ -19,9 +19,12 @@ def load_zaaktype(url: str) -> ZaakType:
     zaaktype.concept = api_data["concept"]
 
     # fetch resultaattypen
-    resultaattypen_data = client.list("resultaattype", query_params={"zaaktype": url,})[
-        "results"
-    ]
+    resultaattypen_data = client.list(
+        "resultaattype",
+        query_params={
+            "zaaktype": url,
+        },
+    )["results"]
 
     resultaattypen = [ResultaatType.from_raw(data) for data in resultaattypen_data]
     for resultaattype in resultaattypen:

@@ -63,7 +63,9 @@ class Application(models.Model):
 
 class Layer(models.Model):
     tier = models.PositiveSmallIntegerField(
-        _("tier"), help_text=_("The tier number of the layer"), unique=True,
+        _("tier"),
+        help_text=_("The tier number of the layer"),
+        unique=True,
     )
     name = models.CharField(_("name"), max_length=100)
     description = models.TextField(

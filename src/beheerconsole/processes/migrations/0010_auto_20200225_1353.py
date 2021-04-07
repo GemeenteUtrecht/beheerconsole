@@ -37,5 +37,7 @@ class Migration(migrations.Migration):
                 verbose_name="Location digital",
             ),
         ),
-        migrations.DeleteModel(name="Storage",),
+        migrations.DeleteModel(
+            name="Storage",
+        ),
     ]

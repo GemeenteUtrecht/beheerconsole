@@ -64,7 +64,9 @@ DATABASES = {
         "PASSWORD": config("NLX_DB_PASSWORD", "nlx"),
         "HOST": config("NLX_DB_HOST", "localhost"),
         "PORT": config("NLX_DB_PORT", 5432),
-        "OPTIONS": {"options": "--search_path=transactionlog",},
+        "OPTIONS": {
+            "options": "--search_path=transactionlog",
+        },
     },
 }
 
@@ -144,7 +146,9 @@ TEMPLATE_LOADERS = (
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(DJANGO_PROJECT_DIR, "templates"),],
+        "DIRS": [
+            os.path.join(DJANGO_PROJECT_DIR, "templates"),
+        ],
         "APP_DIRS": False,  # conflicts with explicity specifying the loaders
         "OPTIONS": {
             "context_processors": [
@@ -223,14 +227,19 @@ LOGGING = {
             "format": "%(asctime)s %(process)d | %(thread)d | %(message)s",
         },
     },
-    "filters": {"require_debug_false": {"()": "django.utils.log.RequireDebugFalse"},},
+    "filters": {
+        "require_debug_false": {"()": "django.utils.log.RequireDebugFalse"},
+    },
     "handlers": {
         "mail_admins": {
             "level": "ERROR",
             "filters": ["require_debug_false"],
             "class": "django.utils.log.AdminEmailHandler",
         },
-        "null": {"level": "DEBUG", "class": "logging.NullHandler",},
+        "null": {
+            "level": "DEBUG",
+            "class": "logging.NullHandler",
+        },
         "console": {
             "level": "DEBUG",
             "class": "logging.StreamHandler",
@@ -262,7 +271,11 @@ LOGGING = {
         },
     },
     "loggers": {
-        "beheerconsole": {"handlers": ["project"], "level": "INFO", "propagate": True,},
+        "beheerconsole": {
+            "handlers": ["project"],
+            "level": "INFO",
+            "propagate": True,
+        },
         "django.request": {
             "handlers": ["django"],
             "level": "ERROR",

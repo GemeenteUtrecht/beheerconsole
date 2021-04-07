@@ -16,8 +16,6 @@ asgiref==3.2.3
     # via
     #   -r requirements/ci.txt
     #   django
-attrs==19.3.0
-    # via black
 babel==2.7.0
     # via sphinx
 beautifulsoup4==4.8.1
@@ -28,7 +26,7 @@ billiard==3.6.1.0
     # via
     #   -r requirements/ci.txt
     #   celery
-black==19.10b0
+black==20.8b1
     # via -r requirements/dev.in
 bumpversion==0.5.3
     # via -r requirements/dev.in
@@ -48,7 +46,7 @@ chardet==3.0.4
     # via
     #   -r requirements/ci.txt
     #   requests
-click==7.0
+click==7.1.2
     # via
     #   black
     #   pip-tools
@@ -150,7 +148,7 @@ inflection==0.3.1
     #   -r requirements/ci.txt
     #   django-activiti
     #   django-camunda
-isort==4.3.21
+isort==5.8.0
     # via -r requirements/dev.in
 jinja2==2.10.3
     # via sphinx
@@ -160,6 +158,8 @@ kombu==4.6.7
     #   celery
 markupsafe==1.1.1
     # via jinja2
+mypy-extensions==0.4.3
+    # via black
 nlx-url-rewriter==0.1.2
     # via -r requirements/ci.txt
 packaging==19.2
@@ -214,7 +214,7 @@ redis==3.3.11
     # via
     #   -r requirements/ci.txt
     #   django-redis
-regex==2019.11.1
+regex==2021.4.4
     # via black
 requests-mock==1.7.0
     # via -r requirements/ci.txt
@@ -275,11 +275,13 @@ text-unidecode==1.3
     # via
     #   -r requirements/ci.txt
     #   faker
-toml==0.10.0
+toml==0.10.2
     # via
     #   black
     #   pep517
 typed-ast==1.4.0
+    # via black
+typing-extensions==3.7.4.3
     # via black
 urllib3==1.25.7
     # via

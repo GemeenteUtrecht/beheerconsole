@@ -108,6 +108,9 @@ class Migration(migrations.Migration):
                     ),
                 ),
             ],
-            options={"verbose_name": "process", "verbose_name_plural": "processes",},
+            options={
+                "verbose_name": "process",
+                "verbose_name_plural": "processes",
+            },
         ),
     ]

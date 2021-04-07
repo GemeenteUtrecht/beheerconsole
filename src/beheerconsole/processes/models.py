@@ -55,10 +55,18 @@ class Process(models.Model):
     """
 
     name = models.CharField(
-        _("name"), max_length=255, help_text=_("Human-friendly name."),
+        _("name"),
+        max_length=255,
+        help_text=_("Human-friendly name."),
     )
-    camunda_id = CamundaProcessDefinitionField(_("Camunda process"), blank=True,)
-    activiti_id = ActivitiProcessDefinitionField(_("Activiti process"), blank=True,)
+    camunda_id = CamundaProcessDefinitionField(
+        _("Camunda process"),
+        blank=True,
+    )
+    activiti_id = ActivitiProcessDefinitionField(
+        _("Activiti process"),
+        blank=True,
+    )
 
     description = models.TextField(
         _("description"),
