@@ -7,6 +7,10 @@ set -e
 export PGHOST=${DB_HOST:-db}
 export PGPORT=${DB_PORT:-5432}
 
+uwsgi_port=${UWSGI_PORT:-8000}
+uwsgi_processes=${UWSGI_PROCESSES:-4}
+uwsgi_threads=${UWSGI_THREADS:-1}
+
 until pg_isready; do
   >&2 echo "Waiting for database connection..."
   sleep 1
@@ -22,10 +26,14 @@ python src/manage.py migrate
 >&2 echo "Starting server"
 uwsgi \
     --http :8000 \
+    --http-keepalive \
     --module beheerconsole.wsgi \
     --static-map /static=/app/static \
     --static-map /media=/app/media  \
     --chdir src \
-    --processes 4 \
-    --threads 1
+    --enable-threads \
+    --processes $uwsgi_processes \
+    --threads $uwsgi_threads \
+    --post-buffering=8192 \
+    --buffer-size=65535
     # processes & threads are needed for concurrency without nginx sitting inbetween
