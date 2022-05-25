@@ -135,7 +135,7 @@ pycparser==2.20
     # via
     #   -r requirements/base.txt
     #   cffi
-pyjwt==1.7.1
+pyjwt==2.4.0
     # via
     #   -r requirements/base.txt
     #   django-auth-adfs
