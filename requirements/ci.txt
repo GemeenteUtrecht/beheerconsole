@@ -22,7 +22,7 @@ celery==4.4.0
     # via
     #   -r requirements/base.txt
     #   django-camunda
-certifi==2019.11.28
+certifi==2022.12.7
     # via
     #   -r requirements/base.txt
     #   requests
